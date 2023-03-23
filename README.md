@@ -42,7 +42,11 @@ Github에서 파일을 내려받고 싶다면 code 버튼을 눌러 HTTPS를 복
 # 3교시
 ***
 
+JSX란  JavaScript를 확장한 문법입니다.
+UI가 어떻게 생겨야 하는지 설명하기 위해 React와 함께 사용할 것을 권장합니다
 
+
+***
 ## 2023년 03월 16일 (3주차)
 ![1](https://user-images.githubusercontent.com/118963538/225484873-0b4c5dda-e909-416c-a560-11fba332a95e.png)
 ***
