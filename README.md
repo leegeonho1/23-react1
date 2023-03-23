@@ -19,6 +19,11 @@
 
 
 npm start
+
+![image](https://user-images.githubusercontent.com/118963538/227083002-bccc50b7-3de0-4bf2-93e7-f00b4c9c0aac.png)
+
+브라우저의 새 창이 열리면서 'http://localhot:3000'으로 접속
+
 # 2교시
 
 ## 2023년 03월 16일 (3주차)
