@@ -67,8 +67,11 @@ JSX의 중괄호 안에는 유효한 모든 JavaScript 표현식을 넣을 수 �
 
 ## JSX의 역활
   JSX는 내부적으로 XML/HTML 코드를 자바스크립트로 변환한다.
+  
   React가 createElement 함수를 사용하여 자동으로 자바스크립트로 변환해준다.
+  
   만일 JS작업할 경우 직접 **createElement**함수를 사용해야한다.
+  
   JSX는 가독성을 높여주는 역활을 한다.
   
 ***
