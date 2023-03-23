@@ -28,7 +28,72 @@ npm start
 ***
 
 # 2교시
+***
 
+## git clone 리포지토리 복제
+
+Github에서 파일을 내려받고 싶다면 code 버튼을 눌러 HTTPS를 복사 후 VSCode 터미널에 복사한 링크를 입력
+이후 파일을 내려 받을 수 있음
+
+
+![image](https://user-images.githubusercontent.com/118963538/227087232-f839da8c-cd6d-4ecb-a5bd-01ad5a01f4a5.png)
+
+***
+# 3교시
+***
+
+**JSX**란  JavaScript를 확장한 문법입니다.
+
+UI가 어떻게 생겨야 하는지 설명하기 위해 React와 함께 사용할 것을 권장합니다
+
+## JSX에 표현식 포함하기
+예시에서는 name 이라는 변수를 선언한 후 중괄호로 감싸 JSX안에 사용하였다.
+
+![image](https://user-images.githubusercontent.com/118963538/227092739-66ac731f-cb44-4642-9258-a3f5583d712a.png)
+
+JSX의 중괄호 안에는 유효한 모든 JavaScript 표현식을 넣을 수 있다. 예시를 들자면 2 + 2 , user.firstName 또는 formatName(user) 등은 모두 유효한 JavaScript 표현식이다.
+
+## JSX도 **표현식**이다.
+
+컴파일이 끝나면 JSX표현식이 정규 JavaScript 함수 호출이 되고 JavaScript 객체로 인식이 된다.
+
+## JSX 속성 정의
+
+어트리뷰트에 따옴표를 이용해 문자열 리터럴을 정의할 수 있다.
+
+중괄호를 사용하여 어트리뷰트에 JavaScript표현식을 삽일할 수도 있다.
+
+![image](https://user-images.githubusercontent.com/118963538/227093391-54ffd296-e6f2-4e77-b5ec-a844aa0affb7.png)
+
+## JSX의 역활
+  JSX는 내부적으로 XML/HTML 코드를 자바스크립트로 변환한다.
+  
+  React가 createElement 함수를 사용하여 자동으로 자바스크립트로 변환해준다.
+  
+  만일 JS작업할 경우 직접 **createElement**함수를 사용해야한다.
+  
+  JSX는 가독성을 높여주는 역활을 한다.
+  
+     가독성을 높여 주는게 장점이다.
+     
+***
+## JSX의 장점
+     코드가 간결해진다.
+   
+     가독성이 향상된다.
+   
+     Injection Attack이라는 불리는 해킹 방법을 방어함으로써 보안에 강하다.
+  
+***
+## JSX 사용법
+
+     모든 자바스크립트 문법을 지원한다.
+     
+     자바스크립트 문법에 XML과 HTML을 섞어서 사용한다.
+     
+     만일 html이나 xml에 자바스크립트 코드를 사용하고 싶으면 {}괄호를 사용한다.
+     
+     위 설명에 있음
 ## 2023년 03월 16일 (3주차)
 ![1](https://user-images.githubusercontent.com/118963538/225484873-0b4c5dda-e909-416c-a560-11fba332a95e.png)
 ***
