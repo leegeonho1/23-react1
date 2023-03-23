@@ -1,4 +1,33 @@
 # 23 -React1
+## 201930419_이건호
+
+
+***
+## 2023년 03월 23일 (4주차)
+# 1교시
+1. 기존에 있던 README.md 파일 백업
+2. local에 있는 저장소 이름을 변경/삭제
+3. 새 프로젝트 생성 23-react1
+4. README.md 덮어쓰기
+5. GitHub 저장소 삭제
+6. 로컬에서 23-react1 push
+7. GitHub 저장소 
+***
+![image](https://user-images.githubusercontent.com/118963538/227082177-555017a2-f993-40a9-bbcb-479809f9c493.png)
+***
+이후 터미널에 cd 23-react1 입력
+
+
+npm start
+
+![image](https://user-images.githubusercontent.com/118963538/227083002-bccc50b7-3de0-4bf2-93e7-f00b4c9c0aac.png)
+
+브라우저의 새 창이 열리면서 'http://localhot:3000'으로 접속이 된다.
+
+***
+
+# 2교시
+
 ## 2023년 03월 16일 (3주차)
 ![1](https://user-images.githubusercontent.com/118963538/225484873-0b4c5dda-e909-416c-a560-11fba332a95e.png)
 ***
