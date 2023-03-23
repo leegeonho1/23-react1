@@ -30,9 +30,11 @@ npm start
 # 2교시
 ***
 
-# git clone 리포지토리 복제
+## git clone 리포지토리 복제
 
-Github에서 파일을 내려받고 싶다면
+Github에서 파일을 내려받고 싶다면 code 버튼을 눌러
+![image](https://user-images.githubusercontent.com/118963538/227087232-f839da8c-cd6d-4ecb-a5bd-01ad5a01f4a5.png)
+
 
 ## 2023년 03월 16일 (3주차)
 ![1](https://user-images.githubusercontent.com/118963538/225484873-0b4c5dda-e909-416c-a560-11fba332a95e.png)
