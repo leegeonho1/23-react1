@@ -32,7 +32,9 @@ npm start
 
 ## git clone 리포지토리 복제
 
-Github에서 파일을 내려받고 싶다면 code 버튼을 눌러
+Github에서 파일을 내려받고 싶다면 code 버튼을 눌러 HTTPS를 복사 후 VSCode 터미널에 복사한 링크를 입력
+
+
 ![image](https://user-images.githubusercontent.com/118963538/227087232-f839da8c-cd6d-4ecb-a5bd-01ad5a01f4a5.png)
 
 
