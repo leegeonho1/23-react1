@@ -15,6 +15,8 @@
 ***
 ![image](https://user-images.githubusercontent.com/118963538/227082177-555017a2-f993-40a9-bbcb-479809f9c493.png)
 ***
+이후 터미널에 cd 23-react1 
+npm start
 # 2교시
 
 ## 2023년 03월 16일 (3주차)
