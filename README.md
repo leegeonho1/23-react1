@@ -13,6 +13,8 @@
 6. 로컬에서 23-react1 push
 7. GitHub 저장소 
 ***
+# 2교시
+***
 
 ## 2023년 03월 16일 (3주차)
 ![1](https://user-images.githubusercontent.com/118963538/225484873-0b4c5dda-e909-416c-a560-11fba332a95e.png)
