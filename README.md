@@ -42,9 +42,16 @@ Github에서 파일을 내려받고 싶다면 code 버튼을 눌러 HTTPS를 복
 # 3교시
 ***
 
-JSX란  JavaScript를 확장한 문법입니다.
+**JSX***란  JavaScript를 확장한 문법입니다.
 
 UI가 어떻게 생겨야 하는지 설명하기 위해 React와 함께 사용할 것을 권장합니다
+
+JSX에 표현식 포함하기
+예시에서는 name 이라는 변수를 선언한 후 중괄호로 감싸 JSX안에 사용하였다.
+
+![image](https://user-images.githubusercontent.com/118963538/227092739-66ac731f-cb44-4642-9258-a3f5583d712a.png)
+
+JSX의 중괄호 안에는 유효한 모든 JavaScript 표현식을 넣을 수 있다. 예시를 들자면 2 + 2 , user.firstName 또는 formatName(user) 등은 모두 유효한 JavaScript 표현식이다.
 
 
 ***
