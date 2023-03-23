@@ -11,7 +11,8 @@
 4. README.md 덮어쓰기
 5. GitHub 저장소 삭제
 6. 로컬에서 23-react1 push
-7. GitHub 저장소 
+7. GitHub 저장소 확인
+
 ***
 ![image](https://user-images.githubusercontent.com/118963538/227082177-555017a2-f993-40a9-bbcb-479809f9c493.png)
 ***
