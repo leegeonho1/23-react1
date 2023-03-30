@@ -216,7 +216,7 @@ DOM에게 한 번에 전달하여 딱 한 번만 렌더링을 진행한다.
 
        렌더링의 과정은 다음 예시 코드와 같다.
        
-       ![image](https://user-images.githubusercontent.com/118963538/228722367-0659aac9-eda6-441e-872b-847e5f4cf02a.png)
+![image](https://user-images.githubusercontent.com/118963538/228722367-0659aac9-eda6-441e-872b-847e5f4cf02a.png)
 
 
 ***
