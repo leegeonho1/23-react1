@@ -249,6 +249,41 @@ DOM에게 한 번에 전달하여 딱 한 번만 렌더링을 진행한다.
        
 ![image](https://user-images.githubusercontent.com/118963538/228722367-0659aac9-eda6-441e-872b-847e5f4cf02a.png)
 
+## 컴포넌트 합성
+      -컴포넌트 합성은 여러 개의 컴포넌트를 합쳐서 하나의 컴포넌트를 만드는 것이다.
+
+      -리액트에서는 컴포넌트 안에 또 다른 컴포넌트를 사용할 수 있기 때문에, 복작합 화면을 여러 개의 
+       컴포넌트를 나누어 구현할 수 있다.
+
+      -다음 코드에서는 props의 값을 다르게 해서 Welcome 컴포넌트를 여러 번 사용한다.
+      
+![image](https://user-images.githubusercontent.com/118963538/228724025-af64a5a8-d3c2-4063-841c-8a6c0b7e66bb.png)
+
+## 컴포넌트 추출
+     - 복잡한 컴포넌트를 쪼개서 여러 개의 컴포넌트로 나눌 수도 있다.
+
+     - 큰 컴포넌트에서 일부를 추출해서 새로운 컴포넌트를 만드는 것이다.
+
+     - 실무에서는 처음부터 1개의 컴포넌트에 하나의 기능만 사용하도록 설계하는 것이 좋다.
+
+     Comment는 댓글 표시 컴포넌트이다.
+
+     - 내부에는 이미지, 이름, 댓글과 장성일이 포함되어 있다.
+
+     - 첫 번째로 이미지 부분을 Avatar 컴포넌트로 출력해본다
+
+![image](https://user-images.githubusercontent.com/118963538/228724069-7ed692c8-7cac-452f-8072-88e338ba0a7b.png)
+
+![image](https://user-images.githubusercontent.com/118963538/228724090-05b09f36-a0c5-42a9-bd63-47f74cd2cc54.png)
+
+
+     - 두 번째로 사용자 정보 부분을 추출한다.
+
+     - 컴포넌트 이름은 UserInfo로 한다. React 컴포넌트 이름은 Camel notatio을 사용한다.
+
+     - UserInfo 안에 Avatar 컴포넌트를 넣어서 완성시킨다.
+
+![image](https://user-images.githubusercontent.com/118963538/228724104-c448e778-b501-43f9-a29b-b5e97de37fed.png)
 
 ***
 ## 2023년 03월 23일 (4주차)
