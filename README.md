@@ -1,7 +1,128 @@
 # 23 -React1
 ## 201930419_이건호
 
+## 2023년 03월 30일 (5주차)
+***
+# 1교시
 
+  ## 엘리먼트의 정의
+  엘리먼트는 리액트 앱을 구성하는 요소를 의미한다
+      
+      
+  공식 페이지에는 **엘리먼트는 리액트 앱의 가장 작은 빌딩 블록들** 이라고 설명한다.
+      
+      
+  웹 사이트의 경우는 DOM 엘리먼트이며 HTML 요소를 의미한다.
+      
+***
+  ## 리액트 엘리먼트와 DOM 엘리먼트의 차이점
+  리액트 엘리먼트는 Virtual Dom의 형태를 취하고 있다
+  
+  
+  DOM 엘리먼트는 페이지의 모든 정보를 갖고 있어서 무겁다
+  
+  
+  반면 리액트 엘리먼트는 __변화한 부분만 갖고 있어서 가볍다__
+  
+  예시
+  
+  ![image](https://user-images.githubusercontent.com/118963538/228704128-101a8753-e855-4a6d-9d85-cef1f92c143c.png)
+
+***
+
+
+리액트 엘리먼트 예를 보면 type에 태그 대신 리액트 컴포넌트가 들어가 있는 것 외에는 차이가 없다
+
+
+자바스크립트 객체이다. 
+
+
+![image](https://user-images.githubusercontent.com/118963538/228704511-3196ae6f-0371-484c-aeb1-9d63cb894682.png)
+
+
+## 내부적 자바스크립트 객체를 만드는 역활을 하는 함수가 createElement()입니다.
+    첫 번째 매개변수가 type이다. 이 곳에 태그가 들어가면 그대로 표현, 리액트 컴포넌트가 들어가면 이 것을 분해해 태그로 만들게 된다.
+    두 번째 매개변수인 props는 속성을 나타낸다.
+    세 번째는 매개변수 children이다. 자식태그라고 이해
+
+
+***
+
+## 엘리먼트의 특징
+
+    리액트 엘리먼트의 가장 큰 특징은 불변성이다.
+    즉, 한 번 생성된 엘리먼트의 children이나 속성(attributes)을 바꿀 수 없다.
+
+## 만일 내용이 바뀔 경우는 어떻게 해야 하나?
+     이 때는 컴포넌트를 통해 새로운 엘리먼트를 생성하면 된다.
+     그 다음 이전 엘리먼트와 교체를 하는 방법으로 내용을 바꾼다.
+     이렇게 교체하는 작업을 하기위해 Virtual DOM을 사용한다.
+
+ ![image](https://user-images.githubusercontent.com/118963538/228706022-9eaab0e7-d16c-4945-8a79-261bd190c2b4.png)
+    
+    
+    붕어빵에 단팥이 들어갓을 경우 맛을 바꿀 수 없듯이 컴포넌트를 통해 새로운 엘리먼트를 생성하면 된다.
+
+***
+
+ ## DOM이란? 
+    MDN에서는 "DOM은 HTML, XML document와 상호작용하고 표현하는 API이다. DOM은 browser에서 로드되며 Node
+    트리로 표현하는 document 모델이다.
+
+  ## 브라우저 동작원리
+
+        DOM은 해당 과정을 계속 반복한다. 즉, 오타 수정, 문구 제거 혹은 이미지를 첨부하는  사소한 일을 하더라도, DOM은 처음부터 다시 HTML을 
+        파싱하여 DOM 트리를 만들고 CSS를 파싱하여 Render 트리를 만들고, 레이아웃을 입혀 출력한다. 그래서 Virtual Dom이 나왔다.
+
+
+  ![image](https://user-images.githubusercontent.com/118963538/228708125-91d2861b-cbb3-4ca9-a98c-0b7ad47a7441.png)
+
+  ## Virtual Dom
+    Virtual Dom(이하 가상 DOM)은 수정사항이 여러 가지 있더라도, 가상 DOM은 한 번만 렌더링을 일으킨다.
+
+![image](https://user-images.githubusercontent.com/118963538/228708356-3ace0ac9-d02d-42b0-9ef1-6ccb5bddb038.png)
+
+위의 그림처럼, 가상 DOM은 DOM이 생성되기 전, 이전 상태 값과 수정사항을 비교하여 달라진 부분만
+DOM에게 한 번에 전달하여 딱 한 번만 렌더링을 진행한다. 
+
+
+![image](https://user-images.githubusercontent.com/118963538/228712205-3b491c75-bfd6-4926-bc3a-1215e310201c.png)
+    
+    
+    첫 번째의 경우 Virtual DOM
+    
+    두 번째의 경우 Browse DOM
+
+***
+# 2교시
+***
+ ## 엘리먼트 렌더링하기
+
+ Root DOM node
+ 
+ 다음 html 코드는 id값이 root인 div 태그로 단순하지만 리액트에 필수로 들어가는 아주 중요한코드이다
+ 이 div태그 안에 리액트 엘리먼트가 렌더링 되며 이 것을 Root DOM node 라고 한다
+
+
+엘리먼트를 렌더링하기 위해서는 다음과 같은 코드가 필요하다
+![image](https://user-images.githubusercontent.com/118963538/228712470-9675d299-23c3-410f-b097-96610fdd57e4.png)
+
+
+이때 render()함수를 사용하게 된다
+
+이 함수의 첫 번째 파라메터 출력할 엘리먼트이고, 두 번째 파라메터는 출력할 타겟을 나타낸다
+즉 리액트 렌터링의 과정은 Virtual DOM에서 실제로 DOM으로 이동하는 과정이라고 할 수 있다.
+
+***
+
+
+![image](https://user-images.githubusercontent.com/118963538/228712688-08bd0c26-1aa8-4182-8ad1-77400f42cd1a.png)
+
+    렌더링 된 엘리먼트 업데이트 해보기
+  
+    React 홈페이지에서 스크립트 태그 가져오기
+  
+    babel 홈페이지에서 태그 가져오기
 ***
 ## 2023년 03월 23일 (4주차)
 # 1교시
@@ -94,6 +215,7 @@ JSX의 중괄호 안에는 유효한 모든 JavaScript 표현식을 넣을 수 �
      만일 html이나 xml에 자바스크립트 코드를 사용하고 싶으면 {}괄호를 사용한다.
      
      위 설명에 있음
+***
 ## 2023년 03월 16일 (3주차)
 ![1](https://user-images.githubusercontent.com/118963538/225484873-0b4c5dda-e909-416c-a560-11fba332a95e.png)
 ***
