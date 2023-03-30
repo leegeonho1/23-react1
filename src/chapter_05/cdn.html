@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+    <title>WebTest</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- [라이브러리 CDN 등록 실시] -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>    
+</head>
+
+<!-- [body 콘텐츠 작성] -->
+
+    <body>
+            <script type="text/babel">
+                function tick(){
+                    const element = (
+                        <div>
+                            <h1>안녕, 리액트!</h1>
+                            <h2>현재 시간: {new Date().toLocaleTimeString()}</h2>
+                        </div>
+                    );
+
+                    ReactDOM.render(element, document.getElementById('root'));
+                }
+
+                setInterval(tick, 1000);
+            </script>
+            <div id="root">
+        </div>
+    </body>
+</html>
