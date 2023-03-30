@@ -1,3 +1,6 @@
+// 4.4 시계 만들기 Page 132
+// Clock 컴포넌트
+
 import React from "react";
 
 function Clock(props){
