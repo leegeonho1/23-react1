@@ -59,6 +59,8 @@
      이렇게 교체하는 작업을 하기위해 Virtual DOM을 사용한다.
 
  ![image](https://user-images.githubusercontent.com/118963538/228706022-9eaab0e7-d16c-4945-8a79-261bd190c2b4.png)
+    
+    
     붕어빵에 단팥이 들어갓을 경우 맛을 바꿀 수 없듯이 컴포넌트를 통해 새로운 엘리먼트를 생성하면 된다.
 
 ***
