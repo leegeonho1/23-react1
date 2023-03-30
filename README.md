@@ -87,7 +87,11 @@ DOM에게 한 번에 전달하여 딱 한 번만 렌더링을 진행한다.
 
 
 ![image](https://user-images.githubusercontent.com/118963538/228712205-3b491c75-bfd6-4926-bc3a-1215e310201c.png)
+    
+    
     첫 번째의 경우 Virtual DOM
+    
+    
     두 번째의 경우 Browse DOM
 
 ***
