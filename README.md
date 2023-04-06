@@ -157,13 +157,13 @@
 
     state가 변하면 다시 렌더링이 되기 때문에 렌더링과 관련된 값만 state에 포함시켜야 한다.
 
-    **자주 바뀌는 값에 state를 포함 시키면 좋다** 
+    자주 바뀌는 값에 state를 포함 시키면 좋다
 
 ***
 
 ## state의 특징
     
-    리액트 만의 특별한 형태가 아닌 단지 **자바스크립트 객체일 뿐이다.
+    리액트 만의 특별한 형태가 아닌 단지 자바스크립트 객체일 뿐이다.
 
     예의 LikeButton class 컴포넌트이다.
 
@@ -171,7 +171,7 @@
 
     * 함수형 에서는 useState()라는 함수를 사용한다.
     
-    ![image](https://user-images.githubusercontent.com/118963538/230259759-cbae7cff-98f6-481f-8d00-740dbb83a8c8.png)
+![image](https://user-images.githubusercontent.com/118963538/230259759-cbae7cff-98f6-481f-8d00-740dbb83a8c8.png)
 
 ***
 ## 2023년 03월 30일 (5주차)
