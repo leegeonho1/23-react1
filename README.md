@@ -74,6 +74,8 @@
             },
          };
 ***
+
+
  ## 나쁜코드 예시
  
  ![image](https://user-images.githubusercontent.com/118963538/230258768-9ee4b5ee-f5f6-41c0-ae04-3b1ad31c3027.png)
