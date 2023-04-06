@@ -9,21 +9,20 @@
 
 ## 실습_댓글 컴포넌트 만들기
 
-    프로젝트 디렉토리에 chapter_05라는 디렉토리 생성
+      프로젝트 디렉토리에 chapter_05라는 디렉토리 생성
     
-    
-    Comment.jsx 파일 생성
+      Comment.jsx 파일 생성
     
     
 
-import React from "react";
+       import React from "react";
 
-function Comment(props) {
-    return (
-        <div>
-            <h1>제가 만든 첫 컴포넌트입니다.</h1>
-        </div>
-    );
+       function Comment(props) {
+          return (
+             <div>
+                <h1>제가 만든 첫 컴포넌트입니다.</h1>
+             </div>
+          );
 }
 
 export default Comment;
