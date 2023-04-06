@@ -7,6 +7,41 @@
 
 ***
 
+## 실습_댓글 컴포넌트 만들기
+
+    프로젝트 디렉토리에 chapter_05라는 디렉토리 생성
+    Comment.jsx 파일 생성
+
+import React from "react";
+
+function Comment(props) {
+    return (
+        <div>
+            <h1>제가 만든 첫 컴포넌트입니다.</h1>
+        </div>
+    );
+}
+
+export default Comment;
+
+
+   ## 이후 CommentList.js를 생성하고 컴포넌트 코딩
+
+import React from "react";
+import Comment from "./Comment";
+
+function CommentList(props) {
+    return(
+        <div>
+            <Comment/>
+        </div>
+    );
+}
+
+export default CommentList;
+
+***
+
 ## 2023년 03월 30일 (5주차)
 ***
 # 1교시
