@@ -22,10 +22,9 @@
              <div>
                 <h1>제가 만든 첫 컴포넌트입니다.</h1>
              </div>
-          );
-}
-
-export default Comment;
+            );
+       }
+       export default Comment;
 
 
    ## 이후 CommentList.js를 생성하고 컴포넌트 코딩
