@@ -40,7 +40,7 @@
         }
         export default CommentList;
         
-   ## Comment 컴포넌트에 css를 다음과 같이 작성
+   ## Comment 컴포넌트 안에 css를 다음과 같이 작성
    
           const styles = {
              wrapper: {
