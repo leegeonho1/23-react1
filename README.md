@@ -182,6 +182,32 @@
     
 ![image](https://user-images.githubusercontent.com/118963538/230260090-836619cd-8fa5-47bf-90fb-1b91556009d9.png)
 
+
+## component vs. element vs. instance의 예시
+  
+    element = 재료
+
+    component = 빵 틀
+
+    instance = 재료를 빵 틀에 넣고 만든 빵
+
+## 생명주기에 대해 알아보기
+
+   생명주기는 컴포넌트의 생성시점, 사용시점, 종료시점을 나타내는 것이다.
+
+   constructor가 실행 되면서 컴포넌트가 생성된다.
+   
+   생성 직후 conponentDidMount() 함수가 호출된다.
+
+   컴포넌트가 소멸하기 전까지 여러 번 랜더링 한다.
+   
+   랜더링은 props, setState(), forceUpdate ()에 의해 상태가 변경되며 이루어진다.
+   
+   그리고 렌더링이 끝나면 conponentDinUpdate() 함수가 호출
+   
+    마지막으로 컴포넌트가 언마운트 되면 conpomentWillUnmount() 함수가 호출된다.
+
+
 ***
 ## 2023년 03월 30일 (5주차)
 ***
