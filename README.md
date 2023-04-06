@@ -76,6 +76,27 @@
 
 ***
 # 2교시
+
+    function Comment(props) {
+        return (
+            <div style={styles.wrapper}>
+            <div style={styles.imageContainer}>
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                    alt="프로필 이미지"
+                    style={styles.image}
+                />
+            </div>
+            <div style={styles.contentContainer}>
+                <span style={styles.nameText}>이건호</span>
+                <span style={styles.commentText}>
+                    내가 만든 첫 컴포넌트
+                </span>
+            </div>
+        </div>
+       );
+     }
+     export default Comment;
 ***
 ## 2023년 03월 30일 (5주차)
 ***
