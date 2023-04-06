@@ -1,6 +1,218 @@
 # 23 -React1
 ## 201930419_이건호
 
+## 2023년 04월 06일 (6주차)
+***
+# 1교시
+
+## 실습_댓글 컴포넌트 만들기
+
+      프로젝트 디렉토리에 chapter_05라는 디렉토리 생성
+    
+      Comment.jsx 파일 생성
+    
+      아래 실습코드
+***   
+
+       import React from "react";
+
+       function Comment(props) {
+          return (
+             <div>
+                <h1>제가 만든 첫 컴포넌트입니다.</h1>
+             </div>
+            );
+       }
+       export default Comment;
+
+
+   ## 이후 CommentList.js를 생성하고 컴포넌트 코딩
+
+       import React from "react";
+       import Comment from "./Comment";
+
+       function CommentList(props) {
+           return(
+              <div>
+                 <Comment/>
+              </div>
+             );
+        }
+        export default CommentList;
+        
+   ## Comment 컴포넌트 안에 css를 다음과 같이 작성
+   
+          const styles = {
+             wrapper: {
+                margin: 8,
+                padding: 8,
+                display: "flex",
+                flexDirection: "row",
+                border: "1px solid grey",
+                borderRadius: 16,
+            },
+            imageContainer: {},
+            image: {
+                width: 50,
+                height: 50,
+                borderRadius: 25,
+            },
+            contentContainer: {
+                marginLeft: 8,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+            },
+            nameText: {
+                color: "black",
+                fontSize: 16,
+                fontWeight: "bold",
+            },
+             commentText: {
+                 color: "black",
+                 fontSize: 16,
+            },
+         };
+***
+# 2교시
+
+## Comment를 범용으로 사용할 수 있도록 이름과 코멘트를 props로 받도록 수정한다.
+
+      하지만 여기까지만 수정해서는 아무 것도 출력되지 않는다.
+      
+      그 이유는 props로 전달 받은 것이 아직 없기 때문이다.
+      
+ ***
+
+    function Comment(props) {
+        return (
+            <div style={styles.wrapper}>
+            <div style={styles.imageContainer}>
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                    alt="프로필 이미지"
+                    style={styles.image}
+                />
+            </div>
+            <div style={styles.contentContainer}>
+                <span style={styles.nameText}>이건호</span>
+                <span style={styles.commentText}>
+                    내가 만든 첫 컴포넌트
+                </span>
+            </div>
+        </div>
+       );
+     }
+     export default Comment;
+***
+# CommentList를 이용해서 Comment에 props를 전달
+   
+      const comments = [
+            {
+             name: "이건호",
+             comment: "안녕하세요 이건호입니다."
+            },
+            {
+            name: "이건호2",
+            comment: "안녕하세요 이건호2입니다."
+            },
+            {
+            name: "이건호3",
+            comment: "안녕하세요 이건호3입니다."
+            },
+            ]
+
+    function CommentList(props) {
+    return (
+        <div>
+            {comments.map((foo)=> {
+                return (
+                    <Comment name={foo.name} comment={foo.Comment} />
+                )
+            })}
+        </div>
+      )
+    }
+
+***
+
+ ## 나쁜코드 예시
+ 
+ ![image](https://user-images.githubusercontent.com/118963538/230258768-9ee4b5ee-f5f6-41c0-ae04-3b1ad31c3027.png)
+ 
+ 
+     이렇게 코드를 작성하면 매번 컴포넌트를 수정해야 하기때문에 나쁜 코드의 예입니다.
+ 
+     위의 코드처럼 별도의 객체로 받아 컴포넌트에서는 이것을 분리하여 출력하도록 해야한다.
+ 
+ ***
+
+ ## state란?
+
+    state는 리액트 컴포넌트의 상태를 의미한다.
+
+    상태의 의미는 정상인지 비정상인지가 아니라 컴포넌트의 데이터를 의미한다.
+
+    정확히 컴포넌트의 변경 가능한 데이터를 의미한다.
+
+    state가 변하면 다시 렌더링이 되기 때문에 렌더링과 관련된 값만 state에 포함시켜야 한다.
+
+    자주 바뀌는 값에 state를 포함 시키면 좋다
+
+***
+
+## state의 특징
+    
+    리액트 만의 특별한 형태가 아닌 단지 자바스크립트 객체일 뿐이다.
+
+    예의 LikeButton class 컴포넌트이다.
+
+    constructor는 생성자이고 그 안에 있는 this.state가 현 컴포넌트의 state이다.
+
+    * 함수형 에서는 useState()라는 함수를 사용한다.
+    
+![image](https://user-images.githubusercontent.com/118963538/230259759-cbae7cff-98f6-481f-8d00-740dbb83a8c8.png)
+
+
+    state는 변경이 가능하다고는 했지만 직접 수정해서는 안된다.
+
+    불가능 하다고 생각하는 것이 좋다
+
+    state를 변경하고자 할 때는 setstate()함수를 사용한다.
+    
+![image](https://user-images.githubusercontent.com/118963538/230260090-836619cd-8fa5-47bf-90fb-1b91556009d9.png)
+
+
+## component vs. element vs. instance의 예시
+  
+    element = 재료
+
+    component = 빵 틀
+
+    instance = 재료를 빵 틀에 넣고 만든 빵
+    
+ ![image](https://user-images.githubusercontent.com/118963538/230261113-f143b336-b737-42c9-a828-103d8eed4422.png)
+
+
+## 생명주기에 대해 알아보기
+
+     생명주기는 컴포넌트의 생성시점, 사용시점, 종료시점을 나타내는 것이다.
+
+     constructor가 실행 되면서 컴포넌트가 생성된다.
+   
+     생성 직후 conponentDidMount() 함수가 호출된다.
+
+     컴포넌트가 소멸하기 전까지 여러 번 랜더링 한다.
+   
+     랜더링은 props, setState(), forceUpdate ()에 의해 상태가 변경되며 이루어진다.
+   
+     그리고 렌더링이 끝나면 conponentDinUpdate() 함수가 호출
+   
+     마지막으로 컴포넌트가 언마운트 되면 conpomentWillUnmount() 함수가 호출된다.
+
+![image](https://user-images.githubusercontent.com/118963538/230261141-0909afbb-e32c-4a49-9baf-22bc9de8eefb.png)
+
+***
 ## 2023년 03월 30일 (5주차)
 ***
 # 1교시
@@ -196,9 +408,9 @@ DOM에게 한 번에 전달하여 딱 한 번만 렌더링을 진행한다.
 
   ## Pure 함수 vs Impure 함수
 
-     pure 함수는 인수로 받은 정보가 함수 내부에서도 **변하지 않는 함수**이다.
+     pure 함수는 인수로 받은 정보가 함수 내부에서도 변하지 않는 함수이다.
      
-     Impure 함수는 인수로 받은 정보가 함수 내부에서 **변하는 함수이다**.
+     Impure 함수는 인수로 받은 정보가 함수 내부에서 변하는 함수이다.
      
      
    ## Props 사용법
