@@ -106,6 +106,36 @@
      }
      export default Comment;
 ***
+# CommentList를 이용해서 Comment에 props를 전달
+   
+   const comments = [
+        {
+        name: "이건호",
+        comment: "안녕하세요 이건호입니다."
+       },
+       {
+        name: "이건호2",
+        comment: "안녕하세요 이건호2입니다."
+       },
+       {
+        name: "이건호3",
+        comment: "안녕하세요 이건호3입니다."
+       },
+    ]
+
+    function CommentList(props) {
+    return (
+        <div>
+            {comments.map((foo)=> {
+                return (
+                    <Comment name={foo.name} comment={foo.Comment} />
+                )
+            })}
+        </div>
+      )
+    }
+
+***
 ## 2023년 03월 30일 (5주차)
 ***
 # 1교시
