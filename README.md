@@ -13,7 +13,8 @@
     
       Comment.jsx 파일 생성
     
-**    
+      아래 실습코드
+***   
 
        import React from "react";
 
@@ -29,18 +30,17 @@
 
    ## 이후 CommentList.js를 생성하고 컴포넌트 코딩
 
-import React from "react";
-import Comment from "./Comment";
+       import React from "react";
+       import Comment from "./Comment";
 
-function CommentList(props) {
-    return(
-        <div>
-            <Comment/>
-        </div>
-    );
-}
-
-export default CommentList;
+       function CommentList(props) {
+           return(
+              <div>
+                 <Comment/>
+              </div>
+             );
+        }
+        export default CommentList;
 
 ***
 
