@@ -173,6 +173,15 @@
     
 ![image](https://user-images.githubusercontent.com/118963538/230259759-cbae7cff-98f6-481f-8d00-740dbb83a8c8.png)
 
+
+    state는 변경이 가능하다고는 했지만 직접 수정해서는 안된다.
+
+    불가능 하다고 생각하는 것이 좋다
+
+    state를 변경하고자 할 때는 setstate()함수를 사용한다.
+    
+![image](https://user-images.githubusercontent.com/118963538/230260090-836619cd-8fa5-47bf-90fb-1b91556009d9.png)
+
 ***
 ## 2023년 03월 30일 (5주차)
 ***
