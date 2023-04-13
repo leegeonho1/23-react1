@@ -462,6 +462,15 @@
  
 ![image](https://user-images.githubusercontent.com/118963538/231634827-6af30f6d-4d26-424b-9a8c-8d8dc7e556a4.png)
 
+***
+
+# 3교시
+
+***
+
+# 실습 해보기
+
+  1. useCounter.jsx 코드 작성
 
 ***
 ## 2023년 04월 06일 (6주차)
