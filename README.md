@@ -1,6 +1,469 @@
 # 23 -React1
 ## 201930419_이건호
 
+## 2023년 04월 13일 (7주차)
+***
+# 1교시
+***
+
+## React Developer Tools 설치하기
+    
+    구글에서 'React Developer Tools'로 검색하면 찾을 수 있다.
+    
+## (실습) 생명주기 함수 사용해보기
+
+    1번 실습코드에 reservedNotifications의 id값과 Notifications.jsx에 라이프사이클 함수를 추가한다.
+    
+    
+    교재에 설명하지 않은 부분 중 id값은 key props로 작동한다는 것이다.
+        
+    Notification.jsx 파일과 NotificationList 파일을 생성한다.
+    
+    
+## Notification.jsx 부분의 코드
+
+
+
+    import React from "react";
+
+    const styles = {
+        wrapper: {
+            margin: 8,
+            padding: 8,
+            display: "flex",
+            flexDirection: "row",
+            border: "1px solid grey",
+            borderRadius: 16,
+        },
+        messageText: {
+            color: "black",
+            fontSize: 16,
+        },
+    };
+
+    class Notification extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.state = {};
+        }
+
+        componentDidMount() {
+            console.log(`${this.props.id} componentDidMount() called.`);
+        }
+
+         componentDidUpdate() {
+            console.log(`${this.props.id} componentDidUpdate() called.`);
+        }
+
+        componentWillUnmount() {
+            console.log(`${this.props.id} componentWillUnmount() called.`);
+        }
+
+        render() {
+            return (
+                <div style={styles.wrapper}>
+                    <span style={styles.messageText}>{this.props.message}</span>
+                </div>
+            );
+        }
+    }
+    export default Notification;
+    
+## NotificationList.jsx 의 코드
+
+    import React from "react";
+    import Notification from "./Notification";
+
+    const reservedNotifications = [
+        {
+            id: 1,
+            message: "안녕하세요, 오늘 일정을 알려드립니다.",
+        },
+        {
+            id: 2,
+            message: "점심식사 시간입니다.",
+        },
+        {
+            id: 3,
+            message: "이제 곧 미팅이 시작됩니다.",
+        },
+    ];
+
+    var timer;
+
+    class NotificationList extends React.Component {
+        constructor(props) {
+             super(props);
+
+            this.state = {
+                notifications: [],
+            };
+        }
+
+        componentDidMount() {
+            const { notifications } = this.state;
+            timer = setInterval(() => {
+                if (notifications.length < reservedNotifications.length) {
+                    const index = notifications.length;
+                    notifications.push(reservedNotifications[index]);
+                    this.setState({
+                        notifications: notifications,
+                    });
+                } else {
+                    this.setState({
+                        notifications: [],
+                    });
+                    clearInterval(timer);
+                }
+            }, 1000);
+        }
+
+        componentWillUnmount() {
+            if (timer) {
+                clearInterval(timer);
+            }
+        }
+
+        render() {
+            return (
+                <div>
+                    {this.state.notifications.map((notification) => {
+                        return (
+                            <Notification
+                                    key={notification.id}
+                                    id={notification.id}
+                                    message={notification.message}
+                            />
+                        );
+                    })}
+                </div>
+            );
+        }
+    }
+    export default NotificationList;
+
+## 실행결과
+
+![image](https://user-images.githubusercontent.com/118963538/231621205-2b09b922-b5ff-404f-9b17-4aa01115cfa6.png)
+
+***
+
+## State 요약
+
+    State
+    
+     - 리액트 컴포넌트의 변경 가능한 데이터
+     
+     - 컴포넌트를 개발하는 개발자가 직접 정의해서 사용
+     
+     - state가 변경될 경우 컴포넌트가 재렌더링 된다
+     
+     - 렌더링이나 데이터 흐름에 사용되는 값만 state에 포함시켜야 함
+     
+    - State의 특징
+    
+       - 자바스크립트 객체 형태로 존재
+       
+       - 직접적인 변경이 불가능 함
+       
+       - 클래스 컴포넌트
+       
+          -  생성자에서 모든 state를 한 번에 정의
+          
+          -  state를 변경하고자 할 때에는 꼭 setState()함수를 사용해야 함
+           
+       - 함수 컴포넌트
+       
+           - useState() 훅을 사용하여 각각의 state를 정의
+           
+           - 각 state별로 주어지는 set함수를 사용하여 state 값을 변경
+           
+***
+
+## 7.1 훅이란 무엇인가
+  
+  - 클래스형 컴포넌트에서는 생성자에서 state를 정의하고 setState() 함수를 통해 state를 업데이트 한다.
+  
+  - 예전에 사용하던 함수형 컴포넌트는 별도로 state를 정의하거나, 컴포넌트의 생명주기에 맞춰서 어떤 코드가
+    실행되도록 할 수 없었습니다.
+  
+  - 함수형 컴포넌트에서도 state나 생명주기 함수의 기능을 사용하게 해주기 위해 추가된 기능이 **바로 훅(Hook)이다.**
+  
+  - 함수형 컴포넌트도 훅을 사용하여 클래스형 컴포넌트의 기능을 모두 동일하게 구현할 수 있게 되었습니다.
+  
+  - Hook이란 **'state와 생명주기 기능에 갈고리를 걸어 원하는 시점에 정해진 함수를 실행되도록 만든 함수'** 를 의미한다.
+  
+  - 훅의 이름은 모두 **'use'** 로 시작한다.
+  
+  - 사용자 정의 훅을 만들 수 있으며, 이 경우에 이름은 자유롭게 할 수 있으나 'use'로 시작 할 것을 권장한다.
+  
+***
+  
+## useState 란
+
+  - useState는 함수형 컴포넌트에서 state를 사용하기 위한 Hook이다.
+  
+  - 다음 예제는 버튼을 클릭할 때마다 카운트가 증가하는 함수형 컴포넌트 이다.
+  
+  - 하지만 증가는 시킬 수 있지만 증가할 때마다 재 렌더링은 일어나지 않습니다.
+  
+  - 이럴 때 state를 사용해야 하지만 함수형에는 없기 때문에 useState()를 사용합니다.
+  
+![image](https://user-images.githubusercontent.com/118963538/231625003-bb3e7049-09e5-47ed-a0db-e4356cf180bd.png)
+
+***
+
+## useState() 함수의 사용법은 다음과 같습니다.
+
+    - 첫 번째 항목은 state의 이름(변수명)이고,
+    
+    - 두 번째 항목은 state의 set함수이다. 즉 state를 업데이트 하는 함수이다.
+    
+    - 함수를 호출 할 때 state의 초기 값을 설정한다.
+    
+    - 함수의 리턴값은 배열의 형태이다.
+    
+![image](https://user-images.githubusercontent.com/118963538/231625475-e746b13b-31a3-4773-a24c-a5a5e4e969cc.png)
+
+***
+    
+## useEffect
+
+  **useState와 함께 가장 많이 사용하는 Hook이다.**
+    
+  이 함수는 **사이드 이펙트**를 수행하기 위한 것이다.
+  
+   - 영어로 side effect는 부작용을 의미한다. 일반적으로 프로그래밍에서 사이트 이펙트는 '개발자가 의도 하지않은 코드가 실행되면서
+   - 버그가 발생하는 것'을 말한다.
+  
+   - 하지만 리액트에서는 효과 또는 영향을 뜻하는 effect의 의미에 가깝다.
+  
+   - 예를 들면 서버에서 데이터를 받아오거나 수동으로 DOM을 변경하는 등의 작업을 의미한다.
+  
+   - 이 작업을 이펙트라고 부르는 이유는 이 작업들이 다른 컴포넌트에 영향을 미칠 수 있으며, 렌더링중에는 작업이 완료될 수 없기 
+     때문이다. 렌더링이 끝난 이후에 실행되어야 하는 작업들이다.
+  
+   - 클래스 컴포넌트의 생명주기 함수와 같은 기능을 하나로 통합한 기능을 제공한다.
+  
+  **Side effect는 '원래의 용도 혹은 목적의 효과외에, 부수적으로 다른효과가 있는 것'을 뜻하는 것 이다.**
+
+***
+
+# 2교시
+
+결국 SideEffect는 렌더링 외에 실행해야 하는 부수적인 코드를 말한다.
+ * 예를 들면 네트워크 리퀘스트, DOM 수동 도작, 로깅 등은 정리가 필요없는 경우들이다.
+
+## useEffect()함수는 다음과 같이 사용한다
+
+   - 첫 번째 파라미터는 이펙트 함수가 들어가고, 두 번째 파라미터로는 의존성 배열이 들어간다.
+   
+ ![image](https://user-images.githubusercontent.com/118963538/231628412-8ded396c-443a-40ef-a7f2-105c36c69579.png)
+
+    
+   - 의존성 배열은 이펙트가 의존하고 있는 배열로, **배열 안에 있는 변수 중에 하나라도 값이 변경 되었을 때 이펙트 함수**가
+     실행이 된다.
+    
+   - 이펙트 함수는 **처음 컴포넌트가 렌더링 된 이후, 그리고 재 렌더링 이후에 실행이 된다.**
+    
+   - 만약 이펙트 함수가 **마운트와 언마운트 될 때만 한 번씩 실행되게 하고 싶으면 빈 배열을 넣으면 된다.** 이 경우 props나
+     state에 있는 어떤 값에도 의존하지 않기 때문에 여러 번 실행되지 않습니다.
+   
+***
+
+## 의존성 배열을 생략하는 경우는 업데이트 될 때마다 호출이 된다.
+
+    import React, {useTate, useEffect} from "react";
+    
+    function Counter(props) {
+        const [count, setCount] = useState(0);
+        
+     useEffect(() => {
+         document.title = '총 ${count}번 클릭했습니다.';
+     });
+     
+     return (
+         <div>
+             <p> 총 {count}번 클릭했습니다. </p>
+             <button onClick={() => setCount(count +1)}>
+                 클릭
+             </button>
+         </div>
+     
+![image](https://user-images.githubusercontent.com/118963538/231628941-0cd73a0f-6996-475d-94bc-c1ef54154a88.png)
+
+ - 여기서는 배열 없이 useEffect를 사용했기 때문에 DOM이 변경된 이후에 해당 이펙트 함수를 실행하라는 의미이다.
+
+***
+
+## componentWillUnmount()와 동일한 기능은 어떻게 구현하는지 알아보자
+
+    function UserStatusWithCounter(props) {
+            const [count, setCount] = useState(0);
+        
+         useEffect(() => {
+             document.title = '총 ${count}번 클릭했습니다.';
+         });
+     
+         const [isOnline, setIsOnline] = useState(null);
+         useEffect(() => {
+             ServerAPI.subscribeUserStatus(props.user.id.handleStatusChange);
+             return () => {
+                 ServerAPI.unsubscribeUserStatus(props.user.id.handleStatusChange);
+             };
+          });
+          
+![image](https://user-images.githubusercontent.com/118963538/231629825-55cc27f9-2f7a-4637-910d-9ab4466ffe34.png)
+
+ - useEffect()에서 리턴하는 함수는 컴포넌트가 마운트 해제 될 때 호출된다.
+
+***
+
+## 정리하면 다음과 같다
+
+      useEffect(() => {
+        // 컴포넌트가 마운트 된 이후,
+        // 의존성 배열에 있는 변수들 중 하나라도 값이 변경되었을 때 실행됨
+        // 의존성 배열에 빈 배열 ([])을 넣으면 마운트와 언마운트시에 단 한 번씩만 실행된다.
+        // 의존성 배열 생략 시 컴포넌트 업데이트 시마다 실행된다.
+      
+       return() => {
+        // 컴포넌트가 마운트 해제되기 전에 실행됨
+        ...
+        }
+      }, [의존성 변수1, 의존성 변수2, ...]);
+      
+***
+  
+## useMemo 란?
+
+  - useMemo() 훅은 Memoizde value를 리턴하는 훅이다.
+  
+  - 이전 계산값을 갖고 있기 때문에 연산량이 놓은 작업의 반복을 피할 수 있다.
+  
+  - 이 훅은 렌더링이 일어나는 동안 실행된다.
+  
+  - 따라서 렌더링이 일어나는 동안 실행돼서는 안될 작업을 넣으면 안됩니다.
+  
+  - 예를 들면 useEffect 사이트 이팩트 같은 것이다.
+  
+![image](https://user-images.githubusercontent.com/118963538/231630601-2a6fdd59-2972-42fc-bff9-d3536ad985f0.png)
+
+    - 다음 코드와 같이 의존성 배열을 넣지 않을 경우, 렌더링이 일어날 때마다 매번 함수가 실행된다.
+
+    - 따라서 의존성 배열을 넣지 않는 것은 의미가 없다.
+
+    - 만약 빈 배열을 넣게 되면 컴포넌트 마운트 시에만 함수가 실행된다.
+
+![image](https://user-images.githubusercontent.com/118963538/231630793-97a1d14b-e269-4bea-9bdb-a3c5a6e29e5e.png)
+
+***
+
+## useCallback
+
+   - useCallback() 훅은 useMemo()와 유사한 역활을 한다.
+    
+   - 차이점은 **값이 아닌 함수를 반환한다는 점이다.**
+    
+   - 의존성 배열을 파라미터로 받는 것은 useMemo와 동일하다
+    
+   - 파라미터로 받은 함수를 콜백이라고 부른다
+    
+   - **useMemo**와 마찬가지로 의존성 배열 중 하나라도 변경되면 콜백함수를 반환한다.
+   
+![image](https://user-images.githubusercontent.com/118963538/231631148-8f14153b-c1fe-44ed-9434-333df1113cba.png)
+
+***
+
+## useRef
+
+   - useRef() 훅은 래퍼런스를 사용하기 위한 훅이다.
+    
+   **래퍼런스란 특정 컴포넌트에 접근할 수 있는 객체를 의미한다.**
+    
+   - useRef() 훅은 바로 이 레퍼런스 객체를 반환한다.
+    
+   - 레퍼런스 객체에는 .current라는 속성이 있는데, 이것은 현재 참조하고 있는 엘리먼트를 의미한다.
+    
+![image](https://user-images.githubusercontent.com/118963538/231631464-fe8a9b6a-202c-44d6-a9be-1499b7a0df8d.png)
+
+    이렇게 반환된 레퍼런스 객체는 컴포넌트의 라이프타임 전체에 걸쳐서 유지가 된다.
+    
+    즉, 컴포넌트가 마운트 해제 전까지 계속 유지된다는 의미이다.
+
+***
+    
+ ## 훅의 규칙
+ 
+   첫 번째 규칙은 무조건 **최상의 레벨에서만 호출해야 한다는 것이다.** 여기서 최상위는 컴포넌트의 최상위
+   레벨을 의미한다.
+   
+    - 따라서 반복문이나 조건문 또는 중첩된 함수들 안에서 훅을 호출하면 안된다.
+   
+    - 이 규칙에 따라서 훅은 컴포넌트가 렌더링 될 때마다 같은 순서로 호출되어야 한다.
+   
+   두 번째 규칙은 **리액트 함수 컴포넌트에서만 훅을 호출 해야 한다는 것이다**
+   
+    - 따라서 일반 자바스크립트 함수에서 훅을 호출하면 안된다.
+   
+    - 혹은 리액트 함수 컴포넌트 혹은 직접 만든 커스텀 훅에서만 호출할 수 있다.
+    
+***
+    
+## 나만의 훅 만들기
+  
+  - 필요 하다면 직접 훅을 만들어 쓸 수도 있다. 이것을 커스텀 훅 이라고 한다.
+  
+ 1. 커스텀 훅을 만들어야 하는 상황
+   
+   - 예제 UserStatus 컴포넌트는 isOnline이라는 state에 따라서 사용자의 상태가 온라인인지 아닌지를 텍스트로
+     보여주는 컴포넌트 이다.
+   
+![image](https://user-images.githubusercontent.com/118963538/231632852-ac6dcd50-7874-4eb4-a865-4f8c82546ab5.png)
+
+***
+
+ ## 다음 예는 연락처 목록을 제공하면서 사용자의 이름은 초록색으로 표시하는 UserListltem 컴포넌트 이다.
+
+![image](https://user-images.githubusercontent.com/118963538/231633136-7671852c-fe1c-4c1b-b091-f0f917cdefc1.png)
+
+
+    - 앞의 코드와 useState()와 useEffect() 훅을 사용하는 부분이 동일하다.
+    
+    - 이렇게 state와 관련된 로직이 중복되는 경우에 render props또는 HOC를 사용한다.
+
+***
+
+ ## 커스텀 훅 추출하기
+ 
+    - 두 개의 자바스크립트 함수에서 하나의 로직을 공유하도록 하고 싶을 때 새로운 함수를 하나 만드는 방법을 사용한다.
+    
+    - 리액트 컴포넌트와 훅은 모두 함수이기 때문에 동일한 방법을 사용할 수 있다.
+    
+    - 이름을 use로 시작하고 내부에서 다른 훅을 호출하는 자바스크립트 함수를 만들면 된다.
+    
+    - 아래 코드는 중복되는 로직을 useUserStatus()라는 커스텀 훅으로 추출해낸 것이다.
+    
+![image](https://user-images.githubusercontent.com/118963538/231633813-fa74624a-253b-4c28-9382-5e8cf63f4e4a.png)
+
+   - 한 가지 주의할 점은 일반 컴포넌트와 마찬가지로 **다른 훅을 호출하는 것은 무조건 커스텀 훅의 
+     최상위 레벨에서만 해야한다.**
+    
+   - 커스텀 훅은 일반함수와 같다고 생각해도 된다 ( 이름만 틀리다 )
+    
+   - 다만 이름은 use로 시작하도록 한다는 것만 다르다
+
+***
+
+## 커스텀 훅 사용하기
+
+ - 먼저 작성했던 코드를 사용자 훅을 사용해서 수정하면 다음과 같다.
+ 
+![image](https://user-images.githubusercontent.com/118963538/231634827-6af30f6d-4d26-424b-9a8c-8d8dc7e556a4.png)
+
+
+***
 ## 2023년 04월 06일 (6주차)
 ***
 # 1교시
