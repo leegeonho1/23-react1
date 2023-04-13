@@ -523,6 +523,12 @@
              );
            }
            export default Accommodate;
+           
+           
+3. 실행 결과
+      
+![image](https://user-images.githubusercontent.com/118963538/231642697-82b23f3e-90cf-4c47-bc78-7266fe58f29b.png)
+
 
 ***
 ## 2023년 04월 06일 (6주차)
