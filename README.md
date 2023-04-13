@@ -262,6 +262,115 @@
    만약 이펙트 함수가 **마운트와 언마운트 될 때만 한 번씩 실행되게 하고 싶으면 빈 배열을 넣으면 된다.** 이 경우 props나
    state에 있는 어떤 값에도 의존하지 않기 때문에 여러 번 실행되지 않습니다.
 
+## 의존성 배열을 생략하는 경우는 업데이트 될 때마다 호출이 된다.
+
+    import React, {useTate, useEffect} from "react";
+    
+    function Counter(props) {
+        const [count, setCount] = useState(0);
+        
+     useEffect(() => {
+         document.title = '총 ${count}번 클릭했습니다.';
+     });
+     
+     return (
+         <div>
+             <p> 총 {count}번 클릭했습니다. </p>
+             <button onClick={() => setCount(count +1)}>
+                 클릭
+             </button>
+         </div>
+     
+![image](https://user-images.githubusercontent.com/118963538/231628941-0cd73a0f-6996-475d-94bc-c1ef54154a88.png)
+
+여기서는 배열 없이 useEffect를 사용했기 때문에 DOM이 변경된 이후에 해당 이펙트 함수를 실행하라는 의미이다.
+
+## componentWillUnmount()와 동일한 기능은 어떻게 구현하는지 알아보자
+
+    function UserStatusWithCounter(props) {
+            const [count, setCount] = useState(0);
+        
+         useEffect(() => {
+             document.title = '총 ${count}번 클릭했습니다.';
+         });
+     
+         const [isOnline, setIsOnline] = useState(null);
+         useEffect(() => {
+             ServerAPI.subscribeUserStatus(props.user.id.handleStatusChange);
+             return () => {
+                 ServerAPI.unsubscribeUserStatus(props.user.id.handleStatusChange);
+             };
+          });
+          
+![image](https://user-images.githubusercontent.com/118963538/231629825-55cc27f9-2f7a-4637-910d-9ab4466ffe34.png)
+
+useEffect()에서 리턴하는 함수는 컴포넌트가 마운트 해제 될 때 호출된다.
+
+
+## 정리하면 다음과 같다
+
+    useEffect(() => {
+      // 컴포넌트가 마운트 된 이후,
+      // 의존성 배열에 있는 변수들 중 하나라도 값이 변경되었을 때 실행됨
+      // 의존성 배열에 빈 배열 ([])을 넣으면 마운트와 언마운트시에 단 한 번씩만 실행된다.
+      // 의존성 배열 생략 시 컴포넌트 업데이트 시마다 실행된다.
+      
+     return() => {
+      // 컴포넌트가 마운트 해제되기 전에 실행됨
+      ...
+    }
+  }, [의존성 변수1, 의존성 변수2, ...]);
+  
+## useMemo 란?
+
+  useMemo() 훅은 Memoizde value를 리턴하는 훅이다.
+  
+  이전 계산값을 갖고 있기 때문에 연산량이 놓은 작업의 반복을 피할 수 있다.
+  
+  이 훅은 렌더링이 일어나는 동안 실행된다.
+  
+  따라서 렌더링이 일어나는 동안 실행돼서는 안될 작업을 넣으면 안됩니다.
+  
+  예를 들면 useEffect 사이트 이팩트 같은 것이다.
+  
+![image](https://user-images.githubusercontent.com/118963538/231630601-2a6fdd59-2972-42fc-bff9-d3536ad985f0.png)
+
+    다음 코드와 같이 의존성 배열을 넣지 않을 경우, 렌더링이 일어날 때마다 매번 함수가 실행된다.
+
+    따라서 의존성 배열을 넣지 않는 것은 의미가 없다.
+
+    만약 빈 배열을 넣게 되면 컴포넌트 마운트 시에만 함수가 실행된다.
+
+![image](https://user-images.githubusercontent.com/118963538/231630793-97a1d14b-e269-4bea-9bdb-a3c5a6e29e5e.png)
+
+## useCallback
+
+   useCallback() 훅은 useMemo()와 유사한 역활을 한다.
+    
+   차이점은 **값이 아닌 함수를 반환한다는 점이다.**
+    
+   의존성 배열을 파라미터로 받는 것은 useMemo와 동일하다
+    
+   파라미터로 받은 함수를 콜백이라고 부른다
+    
+   **useMemo**와 마찬가지로 의존성 배열 중 하나라도 변경되면 콜백함수를 반환한다.
+   
+![image](https://user-images.githubusercontent.com/118963538/231631148-8f14153b-c1fe-44ed-9434-333df1113cba.png)
+
+## useRef
+    useRef() 훅은 래퍼런스를 사용하기 위한 훅이다.
+    
+    래퍼런스란 특정 컴포넌트에 접근할 수 있는 객체를 의미한다.
+    
+    useRef() 훅은 바로 이 레퍼런스 객체를 반환한다.
+    
+    레퍼런스 객체에는 .current라는 속성이 있는데, 이것은 현재 참조하고 있는 엘리먼트를 의미한다.
+    
+![image](https://user-images.githubusercontent.com/118963538/231631464-fe8a9b6a-202c-44d6-a9be-1499b7a0df8d.png)
+
+    이렇게 반환된 레퍼런스 객체는 컴포넌트의 라이프타임 전체에 걸쳐서 유지가 된다.
+    
+    즉, 컴포넌트가 마운트 해제 전까지 계속 유지된다는 의미이다.
 
 ***
 ## 2023년 04월 06일 (6주차)
