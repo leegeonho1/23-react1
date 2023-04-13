@@ -147,9 +147,33 @@
 
 ![image](https://user-images.githubusercontent.com/118963538/231621205-2b09b922-b5ff-404f-9b17-4aa01115cfa6.png)
 
-## state란 마무리
+## 이번 장 마무리 
 
 ![image](https://user-images.githubusercontent.com/118963538/231623492-5576a714-bf3e-42ce-8f64-4a184edde65a.png)
+
+    State
+     리액트 컴포넌트의 변경 가능한 데이터
+     
+     컴포넌트를 개발하는 개발자가 직접 정의해서 사용
+     
+     state가 변경될 경우 컴포넌트가 재렌더링 된다
+     
+     렌더링이나 데이터 흐름에 사용되는 값만 state에 포함시켜야 함
+     
+    -State의 특징
+    
+       자바스크립트 객체 형태로 존재
+       
+       직접적인 변경이 불가능 함
+       
+       클래스 컴포넌트
+           생성자에서 모든 state를 한 번에 정의
+           state를 변경하고자 할 때에는 꼭 setState()함수를 사용해야 함
+           
+       함수 컴포넌트 
+           useState() 훅을 사용하여 각각의 state를 정의
+           각 state별로 주어지는 set함수를 사용하여 state 값을 변경
+       
 
 
 ## 2023년 04월 06일 (6주차)
