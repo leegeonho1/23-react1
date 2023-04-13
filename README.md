@@ -520,10 +520,9 @@
 
                    {isFull && <p style={{ color: "red" }}>정원이 가득찼습니다.</p>}
                </div>
-           );
-       }
-
-       export default Accommodate;
+             );
+           }
+           export default Accommodate;
 
 ***
 ## 2023년 04월 06일 (6주차)
