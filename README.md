@@ -147,6 +147,9 @@
 
 ![image](https://user-images.githubusercontent.com/118963538/231621205-2b09b922-b5ff-404f-9b17-4aa01115cfa6.png)
 
+## state란 마무리
+
+![image](https://user-images.githubusercontent.com/118963538/231623492-5576a714-bf3e-42ce-8f64-4a184edde65a.png)
 
 
 ## 2023년 04월 06일 (6주차)
