@@ -9,6 +9,11 @@
 ## React Developer Tools 설치하기
     
     구글에서 'React Developer Tools'로 검색하면 찾을 수 있다.
+    
+## (실습) 생명주기 함수 사용해보기
+
+    1번 실습코드에 reservedNotifications의 id값과 Notifications.jsx에 라이프사이클 함수를 추가한다.
+    교재에 설명하지 않은 부분 중 id값은 key props로 작동한다는 것이다.
 
 
 ## 2023년 04월 06일 (6주차)
