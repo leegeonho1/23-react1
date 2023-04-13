@@ -471,6 +471,18 @@
 # 실습 해보기
 
   1. useCounter.jsx 코드 작성
+  
+    import React, { useState } from "react";
+
+    function useCounter(initialvalue) {
+        const [count, setCount] = useState(initialvalue);
+
+        const increaseCount = () => setCount((count) => count + 1);
+        const decreaseCount = () => setCount((count) => Math.max(count -1, 0));
+
+        return [count, increaseCount, decreaseCount];
+    }
+    export default useCounter;
 
 ***
 ## 2023년 04월 06일 (6주차)
