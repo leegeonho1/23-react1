@@ -5,6 +5,136 @@
 ***
 # 1교시
 ***
+## 8.1 이벤트 처리하기
+
+## DOM에서 클릭 이벤트를 처리하는 예제코드.
+![image](https://user-images.githubusercontent.com/118963538/234734675-582ec55d-aa84-4c8b-bc90-4b598f9bd3d8.png)
+
+
+## React에서 클릭 이벤트를 처리하는 예제코드.
+![image](https://user-images.githubusercontent.com/118963538/234734704-6948a891-b84c-4748-aa8b-2e3c37836c52.png)
+
+
+    둘의 차이점은
+
+    1) 이벤트 이름이 onClick에서 onClick으로 변경.(Camel case)
+
+    2) 전달하려는 함수는 문자열에서 함수 그대로 전달.
+
+
+    
+    이벤트가 발생했을 때 해당 이벤트를 처리하는 함수를 "이벤트 핸들러" 라고 합니다.
+    또는 이벤트가 발생하는 것을 계속 듣고 있다는 의미로 "이벤트 리스너" 라고 부르기도 합니다.
+    
+***
+## 이벤트 핸들러 추가하는 방법은 ?
+
+    버튼을 클릭하면 이벤트 핸들러 함수인 handleClick() 함수를 호출 하도록 되어 있습니다.
+
+    bind를 사용하지 않으면 this.handleClick은 클로벌 스코프에서 호출되어, undefined으로 사용할 수 없기
+    때문입니다.
+
+    bind를 사용하지 않으려면 화살표 함수를 사용하는 방법도 있습니다.
+    
+![image](https://user-images.githubusercontent.com/118963538/234734912-91a7a695-0090-4f3d-9f9f-769a61b6553e.png)
+
+  extends로 Component를 상속 받는다.
+
+  this를 사용하기 위해서 바인딩을 필수적으로 해줘야 한다.
+
+
+    하지만 클래스 컴포넌트는 이제 거의 사용하지 않기 때문에 이 내용은 참고만 합니다.
+***
+
+## 클래스형을 함수형으로 바꾸면 다음 코드와 같다.
+
+    함수형에서 이벤트 핸들러를 정의하는 방법은 두 가지가 있다.
+
+    함수형에서는 this를 사용하지않고, onClick에서 바로 HandleClick을 넘기면 된다.
+
+![image](https://user-images.githubusercontent.com/118963538/234735889-70c40ce6-cc76-4623-bb49-bb045039ae42.png)
+
+그림에서는 객체의 이름을 사용하여 쓰기때문에 이름이 없이 사용할 수 있다.
+ - 화살표 함수의 경우 이름이 없다
+
+## 8.2 Arguments 전달하기
+ 
+    함수를 정의할 때는 파라미터(Parameter)혹은 매개변수,
+    함수를 사용할 때는 아귀먼트(Arguments) 혹은 인자라고 부릅니다.
+
+    이벤트 핸들러에 매개변수를 전달해야 하는 경우도 많습니다
+
+![image](https://user-images.githubusercontent.com/118963538/234736799-5155eb0b-aafb-4156-bf15-893a48181f49.png)
+
+- 위의 코드는 모두 동일한 역할을 하지만 하나는 화살표 함수를, 다른하나는 bind를 사용했습니다.
+
+- event라는 매개변수는 리액트의 이벤트 객체를 의미합니다.
+
+- 두 방법 모두 첫 번째 매개변수는 id이고 두 번째 매개변수로 event가 전달 됩니다.
+
+- 첫 번째 코드는 명시적으로 event를 매개변수로 넣어주었고, 두 번째 코드는 id 이후 두 번째 매개변수로
+  event가 자동 전달됩니다. ( 이 방법은 클래스형에서 사용하는 방법이다.)
+  
+- 두 가지 방법이 매개변수 형태가 다르고 전달되는건 같다.
+
+      함수를 정의할 때 function foo(a,b) -> a,b 는 Parameter혹은 매개변수라고 부른다.
+      
+      function foo(1,2)를 넣을 경우 Arguments 혹은 인자라고 부른다.
+
+***
+    MyButton이라는 함수형 컴포넌트를 선언하고 있고 안에는 id와 event가 들어가 있다.
+    
+    console에는 id와 event.target을 넣어주고 있다.
+    
+    버튼을 onClick하면 이벤트를 받아서 핸들 handeDelete로 전달이 되고 있다.
+
+![image](https://user-images.githubusercontent.com/118963538/234738128-fd345ba0-23c1-4669-9d68-0995025d505b.png)
+
+***
+
+## 8.3 (실습) 클릭 이벤트 처리하기
+ 
+ 1. ConfirmButton 컴포넌트 만들기
+
+ 2. 클래스 필드 문법 사용하기
+
+ 3. 함수 컴포넌트로 변경하기
+
+ - 함수형 컴포넌트로 코드 작성
+
+        import React from "react";
+        import { useState } from "react";
+
+        function ConfirmButton(params) {
+            const [isConfirmed, setIsConfirmed] = useState(false);
+
+            const handleConfirm = () => {
+                setIsConfirmed((prevIsConfirmed) => !prevIsConfirmed);
+            };
+    
+            return (
+                <button onClick={handleConfirm} disable={isConfirmed}>
+                    {isConfirmed ? "확인됨":"확인하기"}
+                </button>
+            );
+        }
+
+        export default ConfirmButton;
+        
+ - 실행화면
+   - 버튼을 누르면 확인됨으로 바뀜
+   
+![image](https://user-images.githubusercontent.com/118963538/234739772-7f6db361-6baa-4d2d-b743-517ac647b63a.png)
+
+***
+  
+## 화살표 함수를  이용한 앞에 실습코드
+
+    화살표 함수 안에 화살표 함수를 넣은 prevIsConfirmed 는 앞에서 실습 해봤던 useState 와 기능이 같다
+    예) 토글 스위치 기능과 같다
+    
+![image](https://user-images.githubusercontent.com/118963538/234741208-20f0a5aa-76fe-46e5-9cd6-a8a655b607f3.png)
+
 
 ***
 ## 2023년 04월 13일 (7주차)
