@@ -198,7 +198,7 @@
 
    - and 연산자에서 첫 번째 조건이 거짓이면 두 번째 조건은 판단할 필요가 없다.
 
-![image](https://user-images.githubusercontent.com/118963538/234745487-97405631-16a8-4098-9bd7-de4f0efa743d.png)
+![image](https://user-images.githubusercontent.com/118963538/234745802-71398e4a-e596-48f2-88e8-ab35a977b5e3.png)
 
 **앞이 false이면 뒤에가 true든 false든 판단하지 않는다.**
 
