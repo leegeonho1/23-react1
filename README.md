@@ -210,9 +210,29 @@
      - 문자열이나 엘리먼트를 넣어서 사용할 수도 있다.
 
        조건문 ? 참일 경우 : 거짓일 경우
+        - 물음표 앞쪽에 있는걸 실행하고 거짓일 경우 : 뒤에 있는 것을  실행한다
 
 ![image](https://user-images.githubusercontent.com/118963538/234746225-c2d90940-29c1-4e27-82b8-9c43e7445b79.png)
 
+***
+# 3교시
+***
+
+## 9.4 컴포넌트 렌더링 막기
+
+**컴포넌트를 렌더링하고 싶지 않을 때에는 null을 리턴합니다**
+       
+      function WarningBanner(props) {
+           if  (!props.warning) {
+                      return null;
+           }
+         
+           return (
+                 <div>경고!</div>
+           );
+        }
+
+**! props.warning 가 warnig이 true면 경고 ! 가 뜨게 되고 false의 경우 널 값을 리턴 해준다**
 
 ***
 ## 2023년 04월 13일 (7주차)
