@@ -10,10 +10,11 @@ import CommentList from './chapter_05/CommentList';
 import NotificationList from './chapter_06/NotificationList';
 import useCounter from './chapter_07/useCounter';
 import Accommodate from './chapter_07/Accommdate';
+import ConfirmButton from './chapter_08/ConfirmButton';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Accommodate/>
+    <ConfirmButton/>
   </React.StrictMode>,
   document.getElementById('root')
 );
