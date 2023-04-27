@@ -11,7 +11,7 @@
 
 ## React에서 클릭 이벤트를 처리하는 예제코드.
 
-   둘의 차이점은
+    둘의 차이점은
 
     1) 이벤트 이름이 onClick에서 onClick으로 변경.(Camel case)
 
