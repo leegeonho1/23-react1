@@ -100,6 +100,42 @@
 
  3. 함수 컴포넌트로 변경하기
 
+ - 함수형 컴포넌트로 코드 작성
+
+        import React from "react";
+        import { useState } from "react";
+
+        function ConfirmButton(params) {
+            const [isConfirmed, setIsConfirmed] = useState(false);
+
+            const handleConfirm = () => {
+                setIsConfirmed((prevIsConfirmed) => !prevIsConfirmed);
+            };
+    
+            return (
+                <button onClick={handleConfirm} disable={isConfirmed}>
+                    {isConfirmed ? "확인됨":"확인하기"}
+                </button>
+            );
+        }
+
+        export default ConfirmButton;
+        
+ - 실행화면
+   - 버튼을 누르면 확인됨으로 바뀜
+   
+![image](https://user-images.githubusercontent.com/118963538/234739772-7f6db361-6baa-4d2d-b743-517ac647b63a.png)
+
+***
+  
+## 화살표 함수를  이용한 앞에 실습코드
+
+    화살표 함수 안에 화살표 함수를 넣은 prevIsConfirmed 는 앞에서 실습 해봤던 useState 와 기능이 같다
+    예) 토글 스위치 기능과 같다
+    
+![image](https://user-images.githubusercontent.com/118963538/234741208-20f0a5aa-76fe-46e5-9cd6-a8a655b607f3.png)
+
+
 ***
 ## 2023년 04월 13일 (7주차)
 ***
