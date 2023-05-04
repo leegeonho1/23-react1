@@ -205,6 +205,58 @@
 ![image](https://user-images.githubusercontent.com/118963538/236098317-e25acbc1-5d4a-4d58-b408-cd9e0750425e.png)
 
 ***
+## 11.7 Input Null Value
+    - 제어 컴포넌트에 value prop을 정해진 값으로 넣으면 코드를 수정하지 않는 한 입력 값을 바꿀 수 없습니다.
+
+    - 만약 value prop을 넣되 자유롭게 입력할 수 있게 만들고 싶다면 undefined또는 null을 넣어주면 됩니다.
+
+![image](https://user-images.githubusercontent.com/118963538/236099992-b459fc01-baf9-4099-9948-e17f8c5dc79a.png)
+***
+## 11.8 (실습) 사용자 정보 입력받기
+
+   - src/chapter_11 이라는 폴더를 생성합니다
+
+   - SignUp.jsx라는 이름의 함수형 컴포넌트를 생성합니다.
+
+   - 컴포넌트에 이름 입력 코드를 작성합니다.
+
+   - index.js 파일을 수정합니다
+
+   - 앱을 실행하고 정상 동작을 확인합니다.
+
+   - 성별 입력 코드를 추가합니다.
+
+***
+    import React, { useState } from "react";
+
+    function SigUp(props) {
+        const [name, setName] = useState("");
+
+        const handleChangeName = (event) => {
+            setName(event.target.value);
+        };
+
+        const handleSubmit = (event) => {
+            alert(`이름: ${name}`);
+            event.preventDefault();
+        };
+    
+        return (
+            <form onSubmit={handleSubmit}>
+                <label>
+                    이름:
+                    <input type="text" value={name} onChange={handleChangeName} />
+                </label>
+                <button type="sumbit">제출</button>
+            </form>
+        );
+    }
+    export default SigUp;
+    
+**실행화면**
+![image](https://user-images.githubusercontent.com/118963538/236103474-4865cc9b-627c-4f5b-9a26-383d7a5f9c49.png)
+
+***
 ## 2023년 04월 27일 (9주차)
 ***
 # 1교시
