@@ -212,6 +212,8 @@
 
 ![image](https://user-images.githubusercontent.com/118963538/236099992-b459fc01-baf9-4099-9948-e17f8c5dc79a.png)
 ***
+# 3교시
+***
 ## 11.8 (실습) 사용자 정보 입력받기
 
    - src/chapter_11 이라는 폴더를 생성합니다
@@ -255,6 +257,52 @@
     
 **실행화면**
 ![image](https://user-images.githubusercontent.com/118963538/236103474-4865cc9b-627c-4f5b-9a26-383d7a5f9c49.png)
+
+
+## 성별 입력 코드를 추가 했을 경우
+
+    import React, { useState } from "react";
+
+    function SigUp(props) {
+        const [name, setName] = useState("");
+        const [gender, setGender] = useState("남자");
+
+        const handleChangeName = (event) => {
+            setName(event.target.value);
+        };
+    
+        const handleChangeGender = (event) => {
+            setGender(event.target.value);
+        };
+
+        const handleSubmit = (event) => {
+            alert(`이름: ${name}, 성별: ${gender}`);
+            event.preventDefault();
+        };
+    
+        return (
+            <form onSubmit={handleSubmit}>
+                <label>
+                    이름:
+                    <input type="text" value={name} onChange={handleChangeName} />
+                </label>
+                <label>
+                    성별:
+                    <select value={gender} onChange={handleChangeGender}>
+                        <option value="남자">남자</option>
+                        <option value="여자">여자</option>
+                    </select>
+                </label>
+                <button type="sumbit">제출</button>
+            </form>
+        );
+    }
+
+    export default SigUp;
+
+
+**실행화면**
+![image](https://user-images.githubusercontent.com/118963538/236105195-112a29ba-c560-44ae-afb8-1ab61ee3e943.png)
 
 ***
 ## 2023년 04월 27일 (9주차)
