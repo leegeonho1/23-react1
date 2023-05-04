@@ -94,8 +94,118 @@
 
     id: 1을 props로 사용하고 값은 map() 함수의 엘리먼트에 키 값을 넣어 "보고서 작성"이 출력
 
+***
+## 10.6 마치며
+
+요약 
+  리스트
+
+    - 같은 아이템을 순서대로 모아놓은 것
+
+  키
+
+    - 각 객체나 아이템을 구분할 수 있는 고유한 값
+
+  여러 개의 컴포넌트 렌더링
+
+     - 자바스크립트 배열의 map() 함수를 사용
+
+     - 배열에 들어있는 각 변수에 어떤 처리를 한 뒤 결과(엘리먼트)를 배열로 만들어서 리턴함
+
+     - map() 함수 안에 있는 엘리먼트는 꼭 키가 필요함
+ 
+   리스트의 키
+
+     - 리스트에서 아이템을 구분하기 위한 고유한 문자열
+
+     - 리스트에서 어떤 아이템이 변경, 추가 또는 제거되었는지 구분하기 위해 사용
+
+     - 리액트에서는 키의 값은 같은 리스트에 있는 엘리먼트 사이에서만 고유한 값이면 됨
+
+  다양한 키 값의 사용 방법
+  
+
+   - 숫자 값을 사용
+      - 배열에 중복된 숫자가 들어있다면 키 값도 중복 되기 때문에 고유해야 한다는 키 값의 조건이 충족되지 않음
+  
+  
+   - id를 사용
+
+       - id의 의미 자체가 고유한 값이므로 키 값으로 사용하기에 적합
+
+       - id가 있는 경우에는 보통 id 값을 키 값으로 사용
+
+   - 인덱스를 사용
+
+     - 배열에서 아이템의 순서가 바뀔 수 있는 경우에는 키 값으로 인덱스를 사용하는 것을 권장하지않음
+
+     - 리액트에서는 키를 명시적으로 넣어 주지 않으면 기본적으로 이 인덱스 값을 키 값으로 사용
+
+***
+# 2교시
+***
+## 11.1 폼이란 무엇인가?
+
+    폼은 일반적으로 사용자가로부터 입력을 받기위한 양식에서 많이 사용된다
+
+![image](https://user-images.githubusercontent.com/118963538/236096216-d3320a04-1d10-4092-89b4-08cff7e9a6c6.png)
+
+위의 예시
+
+***
+## 11.2 제어 컴포넌트
+
+  **제어 컴포넌트는 사용자가 입력한 값에 접근하고 제어할 수 있도록 해주는 컴포넌트이다.**
+
+    HTML 폼 자체적으로 state를 관리
+![image](https://user-images.githubusercontent.com/118963538/236096470-18d8e885-5db9-401a-8902-152b663b7eb4.png)
 
 
+    제어 컴포넌트 모든 데이터를 state에서 관리
+![image](https://user-images.githubusercontent.com/118963538/236096534-f46ac48b-ebf4-4687-b20c-dd9b6fbcf430.png)
+
+***
+
+**다음 코드는 사용자의 이름을 입력 받는 HTML폼을 리액트 제어 컴포넌트로 만든 것 입니다.**
+
+    value 가 변수 setValue <- 함수 를 통해서 useState에 값 변경
+![image](https://user-images.githubusercontent.com/118963538/236097009-f319b07f-e718-49a4-9bd5-112385c29ffb.png)
+
+    value값이 바꼇을 때 handleChange 가 발생하면 setValue를 통해서 이벤트 객체에 value에 셋팅  
+![image](https://user-images.githubusercontent.com/118963538/236097052-3f09ba4a-dd1a-4950-9126-23e05268926a.png)
+
+    const handleSubmit 에서는 alert로 입력한 이름을 띄워준다
+![image](https://user-images.githubusercontent.com/118963538/236097138-e6dfd148-31c4-4238-9fe6-29d8f6a3b576.png)
+
+    return 값에서는 form태그가 handleSubmit을 가지고 있고 입력한 value 이름 값을 handleChange를 통해 바꿔줌
+![image](https://user-images.githubusercontent.com/118963538/236097434-88d5e9a5-8b85-4a95-8308-5b54ad27aa65.png)
+
+***
+## 11.3 textarea 태그
+
+    HTML에서는 <textarea>의 children으로 텍스트가 들어가는 형태입니다.
+![image](https://user-images.githubusercontent.com/118963538/236097763-9baf7ae8-c90b-4895-bc6d-584f5404873f.png)
+
+    리액트에서는 state를 통해 태그의 value라는 attribute를 변경하여 텍스트를 표시한다
+![image](https://user-images.githubusercontent.com/118963538/236097863-fb112682-5b6c-47ee-9265-d2329d9f4637.png)
+    
+    태그에서 /> 는 반드시 닫아줘야한다
+***
+## 11.4 select 태그
+
+     Select태그도 taxtarea와 동일하다.
+![image](https://user-images.githubusercontent.com/118963538/236098089-563dc3b5-b9b1-4fe8-8617-3d3a0c8c5007.png)
+
+    useState에 초기 값은 grape 포도로 설정 되어 있다.
+![image](https://user-images.githubusercontent.com/118963538/236098159-7383a3a3-5dfc-4ee0-88d8-6dd117bd9f1d.png)
+***
+## 11.5 File input 태그
+
+    File input 태그는 그 값이 읽기 전용이기 때문에 리액트에서는 비제어 컴포넌트가 됩니다.
+![image](https://user-images.githubusercontent.com/118963538/236098317-e25acbc1-5d4a-4d58-b408-cd9e0750425e.png)
+
+
+## 11.6 여러 개의 입력 다루기
 ***
 ## 2023년 04월 27일 (9주차)
 ***
