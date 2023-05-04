@@ -11,10 +11,13 @@ import NotificationList from './chapter_06/NotificationList';
 import useCounter from './chapter_07/useCounter';
 import Accommodate from './chapter_07/Accommdate';
 import ConfirmButton from './chapter_08/ConfirmButton';
+import Toolbar from './chapter_09/Toolbar';
+import LandingPage from './chapter_09/LandingPage';
+import AttendanceBook from './chapter_10/AttendanceBook';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ConfirmButton/>
+    <AttendanceBook/>
   </React.StrictMode>,
   document.getElementById('root')
 );

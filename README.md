@@ -137,6 +137,104 @@
 
 
 ***
+# 2교시
+***
+
+## 8.4 마치며
+
+    - 이벤트란?
+       - 사용자가 버튼을 클릭하는 등의 사건을 의미
+
+    - 이벤트 처리하기
+        -DOM의 이벤트
+           - 이벤트의 이름을 모두 소문자로 표기
+           - 이벤트를 처리할 함수를 그대로 전달
+
+    - 이벤트 핸들러
+          - 이벤트가 발생했을 때 해당 이벤트를 처리하는 함수
+          - 이벤트 리스너라고 부르기도 함
+
+    - 클래스 컴포넌트 
+          -  클래스의 함수로 정의하고 생성자에서 바인딩해서 사용
+          - 클래스 필드 문법도 사용가능
+
+    - 함수 컴포넌트
+          - 함수 안에 함수로 정의하거나 arrow function을 사용해서 정의
+
+    - Arguments 전달하기
+          - Arguments란?
+          
+***
+
+## 9.1 조건부 렌더링이란?
+
+    여기서 조건이란 ? 우리가 알고 있는 조건문의 조건이다.
+
+![image](https://user-images.githubusercontent.com/118963538/234742796-c19fef0d-36f1-45d5-a6ea-f98bf8f1336a.png)
+
+    props로 전달받은 isLoggedln이 true이면 <UserGreeting />을 , false면 <GuestGreeting/>을
+    return 합니다.
+
+    이와 같은 렌더링을 조건부 렌더링이라고 한다.
+    
+***
+# 9.2 엘리먼트 변수
+
+![image](https://user-images.githubusercontent.com/118963538/234744414-e97ad8fb-f6d0-4a9a-9f4a-a2caed2e7527.png)
+
+    Logout button을 누르면 handleLogout가 작동하고 false
+
+    Login button을 누르면 handleLogin가 작동한다. true
+***
+## 9.3 인라인 조건
+
+    - 필요한 곳에 조건문을 직접 넣어 사용하는 방법이다.
+
+1. 인라인 if 
+
+   - if문을 직접 사용하지 않고, 동일한 효과를 내기 위해 && 논리 연산자를 사용합니다.
+
+   - &&는 and 연산자로 모든조건이 참일 경우에만 참이 됩니다.
+
+   - and 연산자에서 첫 번째 조건이 거짓이면 두 번째 조건은 판단할 필요가 없다.
+
+![image](https://user-images.githubusercontent.com/118963538/234745802-71398e4a-e596-48f2-88e8-ab35a977b5e3.png)
+
+**앞이 false이면 뒤에가 true든 false든 판단하지 않는다.**
+
+***
+2. 인라인 if-else
+    
+     - 삼항 연산자를 사용한다.
+    
+     - 문자열이나 엘리먼트를 넣어서 사용할 수도 있다.
+
+       조건문 ? 참일 경우 : 거짓일 경우
+        - 물음표 앞쪽에 있는걸 실행하고 거짓일 경우 : 뒤에 있는 것을  실행한다
+
+![image](https://user-images.githubusercontent.com/118963538/234746225-c2d90940-29c1-4e27-82b8-9c43e7445b79.png)
+
+***
+# 3교시
+***
+
+## 9.4 컴포넌트 렌더링 막기
+
+**컴포넌트를 렌더링하고 싶지 않을 때에는 null을 리턴합니다**
+       
+      function WarningBanner(props) {
+           if  (!props.warning) {
+                      return null;
+           }
+         
+           return (
+                 <div>경고!</div>
+           );
+        }
+
+**! props.warning 가 warnig이 true면 경고 ! 가 뜨게 되고 false의 경우 널 값을 리턴 해준다**
+
+***
 ## 2023년 04월 13일 (7주차)
 ***
 # 1교시
