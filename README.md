@@ -204,8 +204,6 @@
     File input 태그는 그 값이 읽기 전용이기 때문에 리액트에서는 비제어 컴포넌트가 됩니다.
 ![image](https://user-images.githubusercontent.com/118963538/236098317-e25acbc1-5d4a-4d58-b408-cd9e0750425e.png)
 
-
-## 11.6 여러 개의 입력 다루기
 ***
 ## 2023년 04월 27일 (9주차)
 ***
