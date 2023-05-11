@@ -15,10 +15,11 @@ import Toolbar from './chapter_09/Toolbar';
 import LandingPage from './chapter_09/LandingPage';
 import AttendanceBook from './chapter_10/AttendanceBook';
 import SigUp from './chapter_11/SignUp';
+import Calculator from './chapter_12/Calculator';
 
 ReactDOM.render(
   <React.StrictMode>
-    <SigUp/>
+    <Calculator/>
   </React.StrictMode>,
   document.getElementById('root')
 );
