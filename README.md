@@ -34,6 +34,115 @@
     각 컴포넌트가 상위 컴포넌트로 올려서 공유하는 방법을 사용하면 리액트에서 간결하게 사용할 수 있고 오류도 적다.
 
     즉 코드의 간결성과 오류가 적다
+    
+***
+# 3교시 
+***
+# 섭씨 화씨 온도 구하는 실습문제 해보기
+
+    1. chapter_12 폴더 생성한다.
+    
+    2. 폴더안에 Calculator.jsx 와 TemperatureInput.jsx 파일을 생성한다.
+    
+    3. 코드는 아래와 같이 작성한다.
+ ***
+ ## TemperatureInput.jsx 코드
+ 
+    const scaleNames = {
+        c: "섭씨",
+        f: "화씨",
+    };
+
+    function TemperatureInput(props) {
+        const handleChange = (event) => {
+            props.onTemperatureChange(event.target.value);
+       };
+
+        return (
+            <fieldset>
+                <legend>
+                    온도를 입력해주세요(단위:{scaleNames[props.scale]}):
+                </legend>
+                <input value={props.temperature} onChange={handleChange} />
+            </fieldset>
+        );
+    }
+
+    export default TemperatureInput;
+***
+
+## Calculator.jsx 코드
+
+    import React, { useState } from "react";
+    import TemperatureInput from "./TemperatureInput";
+
+    function BoilingVerdict(props) {
+        if (props.celsius >= 100) {
+            return <p>물이 끓습니다.</p>;
+        }
+        return <p>물이 끓지 않습니다.</p>;
+    }
+
+    function toCelsius(fahrenheit) {
+        return ((fahrenheit - 32) * 5) / 9;
+    }
+
+    function toFahrenheit(celsius) {
+        return (celsius * 9) / 5 + 32;
+    }
+
+    function tryConvert(temperature, convert) {
+        const input = parseFloat(temperature);
+        if (Number.isNaN(input)) {
+            return "";
+        }
+        const output = convert(input);
+        const rounded = Math.round(output * 1000) / 1000;
+        return rounded.toString();
+        }
+
+    function Calculator(props) {
+        const [temperature, setTemperature] = useState("");
+        const [scale, setScale] = useState("c");
+
+        const handleCelsiusChange = (temperature) => {
+            setTemperature(temperature);
+            setScale("c");
+    };
+
+    const handleFahrenheitChange = (temperature) => {
+        setTemperature(temperature);
+        setScale("f");
+    };
+
+    const celsius =
+        scale === "f" ? tryConvert(temperature, toCelsius) : temperature;
+    const fahrenheit =
+        scale === "c" ? tryConvert(temperature, toFahrenheit) : temperature;
+
+    return (
+        <div>
+            <TemperatureInput
+                scale="c"
+                temperature={celsius}
+                onTemperatureChange={handleCelsiusChange}
+            />
+            <TemperatureInput
+                scale="f"
+                temperature={fahrenheit}
+                onTemperatureChange={handleFahrenheitChange}
+            />
+            <BoilingVerdict celsius={parseFloat(celsius)} />
+        </div>
+      );
+    }
+    export default Calculator;
+    
+***
+## 실행화면
+
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/16b05915-c8cd-49f3-bb9c-6c992133a00c)
+
 
 ## 2023년 05월 04일 (10주차)
 ***
