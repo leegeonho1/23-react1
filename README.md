@@ -1,6 +1,216 @@
 # 23 -React1
 ## 201930419_이건호
 
+## 2023년 05월 18일 (12주차)
+***
+# 1교시
+***
+## 13.1 합성에 대해 알아보기
+
+    합성(Composition)은 '여러 개의 컴포넌트를 합쳐서 새로운 컴포넌트를 만드는 것' 입니다
+
+    조합 방법에 따라 합성의 사용 기법은 다음과 같이 나눌 수 있습니다.
+
+## [1] Containment (담다, 포함하다, 격리하다)
+
+특정 컴포넌트가 **하위 컴포넌트를 포함하는 형태의 합성 방법**입니다.
+
+컴포넌트에 따라서는 어떤 자식 엘리먼트가 들어올 지 미리 예상할 수 없는 경우가 있습니다.
+
+범용적인 '박스' 역할을 하는 Sidebar 혹은 Dialog와 같은 컴포넌트에서 특히 자주 볼 수 있습니다.
+
+이런 컴포넌트에서는 **children prop을 사용하여 자식 엘리먼트를 출력에 그대로 전달** 하는 것이 좋습니다
+
+이때 children prop은  **컴포넌트의 props에 기본적으로 들어있는 children속성**을 사용합니다.
+
+
+## Children 예시
+
+다음과 같이 props.children을 사용하면 해당 컴포넌트의 하위 컴포넌트가 모두 children으로 들어오게 됩니다.
+
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/352863f1-c7cf-4e06-b10b-f26d0f843193)
+
+
+   1. children은 다음 구조에서 세 번째 들어가는 파라미터 입니다.
+
+   2. 파라미터가 배열로 되어있는 이유는 여러 개의 하위 컴포넌트를 가질 수 있기 때문입니다.
+
+   3. children이 배열로 되어있는 것은 여러 개의 하위 컴포넌트를 위한 것입니다.
+ 
+ 
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/f49c4755-6e28-42f4-bf04-00ac06946c03)
+
+***
+
+# Reach.createElemnet () 에 관하여 ...
+
+jsx를 사용하지 않는 경우의 props 전달 방법입니다.
+
+정확히 말하면 JSX를 사용하지 않고 리액트로 엘리먼트를 생성하는 방법입니다.
+
+    // JSX를 이용한 간단한 방법
+    const jsxElement = <h1 className="jsx">JSX Element </h1>
+
+    // 리액트 기능을 사용한 방법
+    const reactElement = React.createElement (
+        'h1', // tag
+        {className: 'obj'}, // props
+        'OBJ Element' // child element
+    )
+    
+***
+## FancyBorder 컴포넌트를 사용하는 예제입니다.
+
+     WelcomeDialog 컴포넌트는 FanyBorder 컴포넌트를 사용하고, FancyBorder 컴포넌트는 <h1>
+     과 <p> 두 개의 태그를 children이 props로 전달됩니다.
+
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/fb1e4304-51ec-4167-89dc-6d6910fe9323)
+
+    리액트에서는 props.children을 통해 하위 컴포넌트를 하나로 모아서 제공 해줍니다.
+
+    만일 여러 개의 children 집합이 필요할 경우는 별도로 props를 정의해서 각각 원하는 컴포넌트를 넣어줍니다.
+
+    예와 같이 SplitPane은 화면을 왼쪽과 오른쪽으르 분활해 주고, App에서는 SplitPane을 사용해서 left, right 두 개의
+    props를 정의하고 있다.
+
+    즉, App에서 left, right를 props를 받아서 화면을 분활하게 됩니다. 이처럼 여러 개의 children 집합이 필요한 경우 별도의 props를
+    정의해서 사용합니다.
+    
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/1125844b-7a95-4554-bbb9-16e98f38a75f)
+
+***
+## [2] Specialization ( 특수화, 전문화 )
+
+    1. 웰컴다이얼로그는 아이얼로그의 특별한 케이스입니다.
+
+    2. 범용적인 개념을 구별이 되게 구체화 하는 것을 특수화라고 합니다..
+
+    3. 객체지향 언어에서는 상속을 사용하여 특수화를 구현합니다.
+
+    4. 리액트에서는 합성을 사용하여 특수화를 구현합니다.
+
+    5. 다음 예와 같이 특수화는 범용적으로 쓸 수 있는 컴포넌트를 만들어 놓고 이를 특수한 목적으로 사용하는
+        합성 방식입니다.
+        
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/f33dd51d-7f92-4915-a1e0-fea8531591b0)
+
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/b7f0c419-79ed-4c0b-8505-43ec0f1d0cc4)
+
+***
+## [3] Containment의 Specialzation을 같이 사용하기.
+
+    Containment를 위해서 props.children을 사용하고, Specialization을 위해 직접 정의한 props를 사용하면 됩니다.
+
+    Dialog 컴포넌트는 이전의 것과 비슷한데 Containment를 위해 끝 부분에 props.children을 추가 했다.
+
+    Dialog를 사용하는 SignUpDialog는 Specialization을 위해 props인 title, message에 값을 넣어주고 있고, 입력받기 위해
+    <input>과 <button>을 사용합니다.
+    이 두개의 태그는 모두 props.children으로 전달되어 다이얼로그에 표시 됩니다.
+
+    이러한 형태로 Containment와 Specialization을 동시에 사용할 수 있습니다.
+    
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/cbac3dab-824a-4fdd-8f7f-5bde11d99712)
+
+***
+## 13.2 상속에 대해 알아보기
+
+   합성과 대비되는 개념으로 상속(inheritance)이 있습니다.
+
+    자식 클래스는 부모 클래스가 가진 변수나 함수 등의 속성을 모두 갖게 되는 개념입니다.
+
+    하지만 리액트에서는 상속보다는 합성을 통해 새로운 컴포넌트를 생성합니다.
+
+   * 복잡한 컴포넌트를 여러 개의 컴포넌트로 만들고, 만든 컴포넌트들을 조합하여 새로운 컴포넌트를 만들자 !
+   
+***
+
+# 2교시
+
+***
+
+## 13.3 (실습) Card 컴포넌트 만들기
+
+1. chapter_13 폴더 생성.
+
+2. Card.jsx 컴포넌트 만들기. 하위 컴포넌트를 감싸서 카드 형태로 보여주는 컴포넌트
+
+3. Card 컴포넌트를 사용하여 ProfileCard 컴포넌트 제작
+
+4. Index.js 파일을 수정
+
+5. App을 실행하고 정상 동작 여부 확인.
+
+
+## card.jsx 파일 
+
+       function Card(props) {
+         const { title, backgroundColor, children } = props;
+
+        return (
+            <div
+                style={{
+                    margin: 8,
+                    padding: 8,
+                    borderRadius: 8,
+                    boxShadow: "0px 0px 4px grey",
+                    backgroundColor: backgroundColor || "white",
+                }}
+            >
+                {title && <h1>{title}</h1>}
+                {children}
+            </div>
+        );
+    }
+    export default Card;
+    
+## ProfileCard.jsx
+
+    import Card from "./Card";
+
+    function ProfileCard(props) {
+        return (
+            <Card title="Inje Lee" backgroundColor="#4ea04e">
+                <p>안녕하세요, 소플입니다.</p>
+                <p>저는 리액트를 사용해서 개발하고 있습니다.</p>
+            </Card>
+        );
+    }
+
+    export default ProfileCard;
+    
+*** 
+## 실행결과 
+
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/88d77db7-cd5c-4ccc-b6b8-2785c1575fda)
+
+***
+
+## 14.1 컨텍스트란 무엇인가?
+
+기존의 일반적인 리액트에서는 데이터가 컴포넌트의 props를 통해 부모에서 자식으로 단 방향으로 전달 되었습니다.
+
+컨텍스트는 이랙트 컴포넌트들 사이에서 데이터를 기존의 props를 통해 전달하는 방식으로 대신 '컴포넌트 트리를 통해
+곧 바로 컴포넌트에 전달하는 새로운 방식' 을 제공합니다.
+
+이 것을 통해 어떤 컴포넌트라도 쉽게 데이터에 접근할 수 있습니다.
+
+컨텍스트를 사용하면 일일이 props로 전달할 필요 없이 그림처럼 데이터를 필요로 하는  컴포넌트에 곧 바로 데이터를 전달할 수 있습니다.
+
+
+## 14.2 언제 컨텍스트를 사용해야 할까?
+
+
+여러 컴포넌트에서 자주 필요로 하는 데이터는 로그인 여부, 로그인 정보, UI테마, 현재 선택된 언어 등이 있습니다.
+
+이런 데이터들을 기존의 방식대로 컴포넌트의 PROPS를 통해 넘겨주는 예
+
+예제처럼 props를 통해 데이터를 전달하는 기존 방식은 실제 데이터를 필요로 하는 컴포넌트까지의 깊이가 깊어질 수록 복잡해집니다.
+
+또한 반복적인 코드를 계속해서 작성 해주어야 하기 때문에 비효율적이고 가독성이 떨어집니다.
+
+컨텍스트를 사용하면 이러한 방식을 깔끔하게 개선할 수 있습니다.
+
+***
 ## 2023년 05월 11일 (11주차)
 ***
 # 1교시
