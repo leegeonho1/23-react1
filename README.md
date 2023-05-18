@@ -214,6 +214,14 @@ jsx를 사용하지 않는 경우의 props 전달 방법입니다.
     
 ![image](https://github.com/leegeonho1/23-react1/assets/118963538/462aca6f-0876-4263-836e-810620252d04)
 
+***
+
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/af797040-b77d-4442-829c-44a08ce2eee2)
+
+    React.createContext() 함수를 사용해서 ThemeContext라는 이름의 컨텍스트를 생성합니다.
+
+    컨텍스트를 사용하려면 컴포넌트의 상위 컴포넌트에서 Provider로 감싸주어야 합니다.
+    
 
 ***
 ## 2023년 05월 11일 (11주차)
