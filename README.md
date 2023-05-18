@@ -294,6 +294,79 @@ jsx를 사용하지 않는 경우의 props 전달 방법입니다.
     이렇게 하면 중간 단계의 컴포넌트들은 user와 avatarSize에 대해 몰라도 됩니다.
 
 ***
+
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/65070df9-f145-4da7-b362-7123f4148c82)
+
+
+    데이터가 많아질수록 상위 컴포넌트가 점점 더 복잡해지기 때문입니다.
+
+    이런 경우 하위 컴포넌트 여러 개의 변수로 나눠서 전달하면 됩니다.
+
+
+    하지만 어떤경우에는 하나의 데이터에 다양한 레벨에 있는 중펍된 컴포넌트들의 접근이 필요할 수 있습니다.
+
+    이런 경우라면 컨텍스트가 유리합니다.
+
+    컨텍스트는 해당 데이터와 데이터의 변경사항을 모두 하위 컴포넌트들에게 broadcas해주기 때문 입니다.
+
+    컨텍스트를 사용하기에 적합한 데이터의 대표적인 예로는 '지역정보', 'UI테마' 그리고 '캐싱된 데이터' 등이 있습니다.
+***
+## 14.4 컨텍스트 API
+
+    이 절에서는 리액트에서 제공하는 컨텍스트 API를 통해 컨텍스트를 어떻게 사용하는지에 대해 알아봅니다.
+
+***
+
+## [1] React.createContext
+
+    컨텍스트를 생성하기 위한 함수입니다.
+
+    파라메타에는 기본 값을 넣어주면 됩니다.
+
+    하위 컴포넌트는 가장 가까운 상위 레벨의 Provider로 부터 컨텍스트를 받게 되지만, 
+    만일 Provider를 찾을 수 없다면 위에서 설정한 기본 값은 사용하게 됩니다.
+
+**const MyContext = React.createContext(기본 값);**
+
+## [2] Context.Provider
+
+    Context.Provider 컴포넌트로 하위 컴포넌트들을 감싸주며 모든 하위 컴포넌트들이 해당 컨텍스트의 데이터에
+    접근할 수 있게 됩니다.
+
+  **<MyContext.Provider value={/* some value */} 컴포넌트의 형태로 사용 됨**
+
+    Provider 컴포넌트에는 value 라는 prop이 있고, 이것은 Provider 컴포넌트 하위에 있는 컴포넌트에게 전달됩니다.
+
+    하위 컴포넌트를 consumer 컴포넌트라고 부릅니다.
+    
+    
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/d3737408-a667-417c-a65c-3a0622349734)
+
+    Provider value에서 주의해야 할 사항 참고
+***
+## [3] Class.contextType
+
+Provider 하위에 있는 클래스 컴포넌트에서 컨텍스트의 데이터에 접근하기 위해 사용합니다.
+
+Class 컴포넌트는 더이상 사용하지 않으므로 참고만 합니다.
+
+## [4] Context.Consumer
+
+**함수형 컴포넌트에서 Context.Consumer를 사용하여 컨텍스트를 구독할 수 있습니다.**
+
+    <MyContext.Consumer>
+        {value => /* 컨텍스트의 값에 따라서 컴포넌트들을 렌더링 */}
+    </MyContext.Consumer>
+
+***
+
+    컴포넌트의 자식으로 함수가 올 수 있는데  이것을 function as a child라고 부릅니다.
+
+    Context.Consumer로 감싸주면 자식으로 들어간 함수가 현재 컨텍스트의 value를 받아서 리액트 노드로 리턴합니다.
+
+    함수로 전달되는 value는 Provider의 value prop과 동일합니다.
+    
+***
 ## 2023년 05월 11일 (11주차)
 ***
 # 1교시
