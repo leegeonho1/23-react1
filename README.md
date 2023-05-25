@@ -68,6 +68,26 @@
     :checked는 radio button이나 checkbox 같은 유형의 <input> 태그가 체그되어 있는 경우를 의미
 
     :first-child, :last-child는 상위 엘리먼트를 기준으로 각각 첫 번째 child, 마지막 child일 경우를 의미
+    
+***
+
+## visibilty
+    visibilty: visible;은 엘리먼트를 visible하게 하는 즉, 화면에 보이게 하는 것이다.
+
+    visibilty: hidden;은 화면에서 안 보이게 감추는 것 입니다. 여기에서 주의할 점은 visibility:hidden;은
+    엘리먼트를 안 보이게만 하는 것이고 화면에서의 영역은 그대로 차지한다는 것입니다.
+
+## position
+
+    static은 기본 값으로 엘리먼트를 원래의 순서대로 위치 시킵니다.
+
+    fixed는 엘리먼트를 브라우저 window에 상대적으로 위치 시킵니다.
+
+    relative는 엘리먼트를 보통의 위치에 상대적으로 위치시킵니다. left: 16px; 같은 속성을 추가하면
+    엘리먼트의 왼쪽에 16픽셀의 여백이 추가 됩니다.
+
+    absolute는 엘리먼트를 절대 위치에 위치시키는데 이때 기준은 첫 번째 상위 엘리먼트가 됩니다.
+    
 ***
 ## 2023년 05월 18일 (12주차)
 ***
