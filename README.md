@@ -1,6 +1,45 @@
 # 23 -React1
 ## 201930419_이건호
 
+## 2023년 05월 11일 (11주차)
+***
+# 1교시
+***
+## 14.5 여러 개의 컨텍스트 사용하기
+
+    여러 개의 컨텍스트를 동시에 사용하려면 Context.Provider를 중첩해서 사용합니다.
+
+    예제에서는 ThemeContext와 UserContext를 중첩해서 사용하고 있습니다.
+
+    이런 방법으로 여러 개의 컨텍스트를 동시에 사용할 수 있습니다.
+
+    하지만 두 개 또는 그 이상의 컨텍스트 값이 자주 함께 사용될 경우 모든 값을 한 번에 제공해 주는
+    별도의 render prop 컴포넌트를 직접 만드는 것을 고려하는 것이 좋습니다.
+
+***
+## 14.6 useContext
+
+    함수형 컴포넌트에서 컨텍스트를 사용하기 위해 컴포넌트를 매번 Consumer 컴포넌트로 감싸주는 것보다
+    더 좋은 방법이 있습니다. 이전에 배운 Hook입니다.
+
+    useContext()혹은 React.createContext()함수 호출로 생성된 컨텍스트 객체를 인자로 받아서 현재 컨텍스트의 값을
+    리턴합니다
+
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/adfa7ab8-1643-4b47-b107-cef39cc6a790)
+
+
+    가장 가까운 상위 Provider로 부터 컨텍스트의 값을 받아옵니다.
+
+    만일 값이 변경되면 useContext() 훅을 사용하는 컴포넌트가 재 렌더링 됩니다.
+
+    또한 useContext() 훅을 사용할 때에는 파라미터로 컨텍스트 객체를 넣어줘야 한다는 것을 기억 해야 합니다.
+    아래 코드처럼 Consumer나 Provider를 넣으면 안됩니다.
+    
+ ![image](https://github.com/leegeonho1/23-react1/assets/118963538/a2b61ab7-f4a6-4393-a01f-3b72d7703426)
+
+***
+
+***
 ## 2023년 05월 18일 (12주차)
 ***
 # 1교시
@@ -366,6 +405,15 @@ Class 컴포넌트는 더이상 사용하지 않으므로 참고만 합니다.
 
     함수로 전달되는 value는 Provider의 value prop과 동일합니다.
     
+***
+## [5] Context.displayName
+
+    컨텍스트 객체는 displayName이라는 문자열 속성을 갖습니다.
+
+    크롬의 리액트 개발자 도구에서는 컨텍스트의 Provider나 Consumer를 표시할 때 displayName을 함께 표시 해줍니다.
+    
+![image](https://github.com/leegeonho1/23-react1/assets/118963538/bafc122d-2b7f-4e09-8abd-83c2c2569b0f)
+
 ***
 ## 2023년 05월 11일 (11주차)
 ***
