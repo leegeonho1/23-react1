@@ -33,6 +33,10 @@
     만일 값이 변경되면 useContext() 훅을 사용하는 컴포넌트가 재 렌더링 됩니다.
 
     또한 useContext() 훅을 사용할 때에는 파라미터로 컨텍스트 객체를 넣어줘야 한다는 것을 기억 해야 합니다.
+    아래 코드처럼 Consumer나 Provider를 넣으면 안됩니다.
+    
+ ![image](https://github.com/leegeonho1/23-react1/assets/118963538/a2b61ab7-f4a6-4393-a01f-3b72d7703426)
+
 ***
 
 ***
