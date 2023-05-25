@@ -38,6 +38,21 @@
  ![image](https://github.com/leegeonho1/23-react1/assets/118963538/a2b61ab7-f4a6-4393-a01f-3b72d7703426)
 
 ***
+# 2교시
+***
+## 14.7(실습) 컨텍스트를 사용하여 테마 변경 기능 만들기
+
+    chapter_14 폴더를 생성
+
+    ThemeContext.jsx 컴포넌트 제작
+
+    MainContent.jsx 컴포넌트 제작
+
+    DarkOrLight.jsx 컴포넌트 제작
+
+    index.js 파일 수정
+
+    App을 실행하고 정상 동작 여부 확인
 
 ***
 ## 2023년 05월 18일 (12주차)
