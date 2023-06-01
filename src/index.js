@@ -17,10 +17,11 @@ import AttendanceBook from './chapter_10/AttendanceBook';
 import SigUp from './chapter_11/SignUp';
 import Calculator from './chapter_12/Calculator';
 import ProfileCard from './chapter_13/ProfileCard';
+import Sample from './chapter/chapter';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ProfileCard/>
+    <Sample/>
   </React.StrictMode>,
   document.getElementById('root')
 );
