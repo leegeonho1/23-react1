@@ -1,5 +1,41 @@
 # 23 -React1
 ## 201930419_이건호
+## 2023년 06월 1일 (14주차)
+***
+1교시
+***
+## font-family
+
+    font-family를 사용하고 콤마(,)로 구분하여 여러 개 글꼴을 사용합니다.
+
+    이것은 font-family 속성의 fallback 시스템 때문입니다. fallback이 대비책이라는 뜻을 가지고 있습니다.
+
+    font-family 속성에서 fallback 시스템은 "지정한 글꼴을 찾지 못했을 경우를 대비해서 사용한 글꼴 순서대로 지정 해준다"
+
+
+## font-size
+
+    글꼴 크기와 관련된 속성으로 font-size가 있습니다. 
+
+    font-size의 값으로는 px, em, rem, vw등의 단위를 사용할 수 있습니다. 
+
+    px은 고정된 값이기 때문에 브라우저를 통해 크기를 바꿀 수 없지만
+
+    em이라는 단위는 사용자가 브라우저에서 글꼴의 크기를 변경할 수 있게 해줍니다.
+    브라우저의 기본 글꼴 크기 1em은 16px와 동일합니다.
+
+## styled-components 설치하기
+
+    styled-components를 사용하기 위해서 프로젝트에 설치를 해줘야 합니다. 아래 명령어를 통해서 
+    최신버전의 styled-componets를 설치할 수 있습니다.
+    
+     npm을 사용하는 경우 
+    npm install -save styled-components
+
+     yarn을 사용하는 경우
+    yarn add styled-components
+    
+***
 
 ## 2023년 05월 25일 (13주차)
 ***
